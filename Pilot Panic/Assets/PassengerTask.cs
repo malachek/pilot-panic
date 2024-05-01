@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PassengerTask : MonoBehaviour
 {
+    [SerializeField] Rigidbody2D rb;
+
     [SerializeField] float m_MaxTaskAssignTime;
     float m_TaskAssignTimer;
 
@@ -20,7 +22,7 @@ public class PassengerTask : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_TaskAssignTimer = m_MaxTaskAssignTime;
+        ResetTaskTimer();
         m_TaskAlert.gameObject.SetActive(false);
     }
 
@@ -35,11 +37,7 @@ public class PassengerTask : MonoBehaviour
             }
             else
             {
-                Debug.Log(":(");
-                HappinessManager.ChangeHappiness(-m_HappinessLoss);
-                m_TaskAlert.gameObject.SetActive(false);
-                m_TaskAssignTimer = m_MaxTaskAssignTime;
-                m_WaitingOnTaskCompletion = false;
+                CompleteTask(false);
             }
         }
         else
@@ -50,13 +48,52 @@ public class PassengerTask : MonoBehaviour
             }
             else
             {
-                Debug.Log("TASK!");
-                HappinessManager.ChangeHappiness(m_HappinessGain);
-                m_TaskAlert.gameObject.SetActive(true);
-                m_TaskPatienceTimer = m_TaskPatience;
-                m_WaitingOnTaskCompletion = true;
+                AssignTask();
             }
         }
         
+    }
+
+    void ResetTaskTimer()
+    {
+        m_TaskAssignTimer = m_MaxTaskAssignTime + Random.Range(-2f, 2f);
+    }
+
+    void CompleteTask(bool success)
+    {
+        if (success)
+        {
+            Debug.Log(":)");
+            HappinessManager.ChangeHappiness(m_HappinessGain);
+        }
+        else
+        {
+            Debug.Log(":(");
+            HappinessManager.ChangeHappiness(-m_HappinessLoss);
+        }
+
+        m_TaskAlert.gameObject.SetActive(false);
+        ResetTaskTimer();
+        m_WaitingOnTaskCompletion = false;
+    }
+
+    void AssignTask()
+    {
+        Debug.Log("TASK!");
+        HappinessManager.ChangeHappiness(m_HappinessGain);
+        m_TaskAlert.gameObject.SetActive(true);
+        m_TaskPatienceTimer = m_TaskPatience;
+        m_WaitingOnTaskCompletion = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Player"))
+        {
+            if(m_WaitingOnTaskCompletion)
+            {
+                CompleteTask(true);
+            }
+        }
     }
 }

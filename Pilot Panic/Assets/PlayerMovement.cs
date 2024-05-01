@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     Vector3 m_MovementVector;
     [SerializeField] float m_MovementSpeed;
 
+    [SerializeField] SpriteRenderer m_SpriteRenderer;
+
     void Awake()
     {
         m_MovementVector = new Vector3();
@@ -23,5 +25,17 @@ public class PlayerMovement : MonoBehaviour
         m_MovementVector *= m_MovementSpeed;
 
         rb.velocity = m_MovementVector;
+    }
+
+    private void FixedUpdate()
+    {
+        if (m_MovementVector.x < 0)
+        {
+            m_SpriteRenderer.flipX = false;
+        }
+        else if (m_MovementVector.x > 0)
+        {
+            m_SpriteRenderer.flipX = true;
+        }
     }
 }
