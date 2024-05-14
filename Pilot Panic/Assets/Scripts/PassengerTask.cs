@@ -71,12 +71,12 @@ public class PassengerTask : MonoBehaviour
         if (success)
         {
             Debug.Log(":)");
-            HappinessManager.ChangeHappiness(m_HappinessGain);
+            ChangeHappiness(MyTask.happinessGain);
         }
         else
         {
             Debug.Log(":(");
-            HappinessManager.ChangeHappiness(-m_HappinessLoss);
+            ChangeHappiness(-MyTask.happinessLoss);
         }
 
         m_TaskAlert.gameObject.SetActive(false);
@@ -84,6 +84,14 @@ public class PassengerTask : MonoBehaviour
         GameObject.FindObjectOfType<TaskManager>().CompletedTask(MyTask, this, success);
         MyTask = null;
         MyState = PassengerState.Idle;
+    }
+
+    void ChangeHappiness(float happinessChange)
+    {
+        float NewHappiness =  Mathf.Clamp(MyHappiness + happinessChange, 0f, 1f);
+        Debug.Log($"{gameObject.name}'s Happiness = {NewHappiness*100}% ({MyHappiness} + {happinessChange})");
+        MyHappiness = NewHappiness;
+        HappinessManager.onHappinessChange(happinessChange);
     }
 
     public void AssignTask(Task task)
@@ -126,7 +134,7 @@ public class PassengerTask : MonoBehaviour
     {
         if(!isBumped)
         Debug.Log("OW!");
-        MyHappiness = Mathf.Pow(MyHappiness, 2);
+        ChangeHappiness(- MyHappiness * (1 - MyHappiness));
         StartCoroutine(BumpedCD());
     }
 

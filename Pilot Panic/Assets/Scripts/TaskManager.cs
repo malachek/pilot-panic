@@ -142,6 +142,11 @@ public class Task
     public string name;
     public string description;
     [Space]
+    [Tooltip("Between 0-1f")]
+    public float happinessGain;
+    [Tooltip("Between 0-1f")]
+    public float happinessLoss;
+    [Space]
     public int maxAssignees;
     public int assigneeCount = 0;
     public List<PassengerTask> assignedPassengers = new List<PassengerTask>();
