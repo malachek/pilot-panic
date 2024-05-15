@@ -12,7 +12,13 @@ public class PlayerMovement : MonoBehaviour
     Vector2 m_InputVector;
     Vector2 m_VelocityVector;
 
+    List<PassengerTask> m_NearbyPassengers = new List<PassengerTask>();
+    PassengerTask m_SelectedPassenger = null;
+
     [SerializeField] SpriteRenderer m_SpriteRenderer;
+
+    [SerializeField] float InteractButtonHoldTime;
+    float m_KeyHoldTime;
 
     void Awake()
     {
@@ -26,9 +32,56 @@ public class PlayerMovement : MonoBehaviour
         m_InputVector.x = Input.GetAxis("Horizontal");
         m_InputVector.y = Input.GetAxis("Vertical");
 
+        DetermineKeyHeld();
+
         //m_InputVector *= m_MovementSpeed;
 
         //rb.velocity = m_MovementVector;
+    }
+
+    private void DetermineKeyHeld()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            m_KeyHoldTime = 0f;
+        }
+
+        if (Input.GetKey(KeyCode.E))
+        {
+            m_KeyHoldTime += Time.deltaTime;
+            if (m_KeyHoldTime >= InteractButtonHoldTime)
+            {
+                InteractInteractable();
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            if (m_KeyHoldTime < InteractButtonHoldTime)
+            {
+                FindInteractable();
+            }
+        }
+    }
+
+    private void FindInteractable()
+    {
+        //var interactables = GameObject.FindObjectsOfType<InteractableBehavior>();
+        Collider2D[] cols = Physics2D.OverlapCircleAll(gameObject.transform.position, 2f);
+        Debug.Log(cols);
+        foreach (Collider2D col in cols)
+        {
+            Debug.Log(col);
+
+            //if (col.gameObject is InteractableBehavior)
+            //{
+            //    Debug.Log($"{col} is InteractableBehavior");
+            //}
+        }
+    }
+
+    private void InteractInteractable()
+    {
+
     }
 
     private void FixedUpdate()

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using UnityEditor.VersionControl;
 using UnityEngine;
 
-public class PassengerTask : MonoBehaviour
+public class PassengerTask : InteractableBehavior
 {
     const float PATIENCE_AT_ZERO = .5f;
 
@@ -41,6 +41,7 @@ public class PassengerTask : MonoBehaviour
 
     private void Start()
     {
+        //myInteractType = InteractType.Button;
         isBumped = false;
     }
 
@@ -58,6 +59,14 @@ public class PassengerTask : MonoBehaviour
             }
         }
     }
+
+    public override void Interact()
+    {
+        Debug.Log($"Interacted () with {gameObject.name}");
+        //{ myInteractType}
+        Debug.Log($"My task is {MyTask}");
+    }
+
 
     public float Weight()
     {
