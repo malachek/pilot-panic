@@ -12,8 +12,8 @@ public class PlayerMovement : MonoBehaviour
     Vector2 m_InputVector;
     Vector2 m_VelocityVector;
 
-    List<PassengerTask> m_NearbyPassengers = new List<PassengerTask>();
-    PassengerTask m_SelectedPassenger = null;
+    [SerializeField] InteractDetector m_InteractDetector;
+    private InteractableBehavior m_SelectedInteractable;
 
     [SerializeField] SpriteRenderer m_SpriteRenderer;
 
@@ -58,30 +58,19 @@ public class PlayerMovement : MonoBehaviour
         {
             if (m_KeyHoldTime < InteractButtonHoldTime)
             {
-                FindInteractable();
+                m_InteractDetector.CycleInteractables();
             }
         }
     }
 
-    private void FindInteractable()
-    {
-        //var interactables = GameObject.FindObjectsOfType<InteractableBehavior>();
-        Collider2D[] cols = Physics2D.OverlapCircleAll(gameObject.transform.position, 2f);
-        Debug.Log(cols);
-        foreach (Collider2D col in cols)
-        {
-            Debug.Log(col);
-
-            //if (col.gameObject is InteractableBehavior)
-            //{
-            //    Debug.Log($"{col} is InteractableBehavior");
-            //}
-        }
-    }
+    
 
     private void InteractInteractable()
     {
+        m_SelectedInteractable = m_InteractDetector.GetInteractable();
+        if(m_SelectedInteractable == null) { return; }
 
+        Debug.Log($"Interacted with {m_SelectedInteractable.gameObject.name}");
     }
 
     private void FixedUpdate()

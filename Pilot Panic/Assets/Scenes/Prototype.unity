@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 109519154}
   - component: {fileID: 109519156}
   - component: {fileID: 109519155}
+  - component: {fileID: 109519157}
   m_Layer: 3
   m_Name: Detection Range
   m_TagString: Untagged
@@ -243,6 +244,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &109519157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109519153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d86d4d171e390e49a12cd0811699106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &110036694
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,6 +860,7 @@ MonoBehaviour:
   m_MaxSpeed: 5
   m_Acceleration: 120
   m_Decelleration: 60
+  m_InteractDetector: {fileID: 109519157}
   m_SpriteRenderer: {fileID: 197659127}
   InteractButtonHoldTime: 0
 --- !u!4 &369541489
@@ -905,7 +919,7 @@ GameObject:
   - component: {fileID: 520478146}
   - component: {fileID: 520478145}
   - component: {fileID: 520478144}
-  - component: {fileID: 520478143}
+  - component: {fileID: 520478147}
   m_Layer: 0
   m_Name: Passenger - M Black White
   m_TagString: Passenger
@@ -913,51 +927,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &520478143
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 520478142}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.30977583}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.6195517}
-  m_EdgeRadius: 0
 --- !u!50 &520478144
 Rigidbody2D:
   serializedVersion: 4
@@ -1022,6 +991,41 @@ Transform:
   - {fileID: 1704961626}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &520478147
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520478142}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.31909025}
+  m_Size: {x: 0.79134274, y: 1.6381805}
+  m_Direction: 0
 --- !u!1 &591182606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1296,6 +1300,7 @@ GameObject:
   - component: {fileID: 834802386}
   - component: {fileID: 834802385}
   - component: {fileID: 834802384}
+  - component: {fileID: 834802387}
   m_Layer: 0
   m_Name: Passenger - F Blonde Blue
   m_TagString: Passenger
@@ -1367,6 +1372,41 @@ Transform:
   - {fileID: 733612425}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &834802387
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834802383}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0044198036, y: 0.30495787}
+  m_Size: {x: 0.84473515, y: 1.6099157}
+  m_Direction: 0
 --- !u!1 &933415610
 GameObject:
   m_ObjectHideFlags: 0
