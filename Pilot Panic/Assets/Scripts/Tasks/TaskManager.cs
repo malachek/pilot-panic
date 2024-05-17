@@ -13,7 +13,7 @@ public class TaskManager : MonoBehaviour
     private Task m_NextTask;
 
     [Header("Passengers")]
-    public PassengerTask[] passengers;
+    public PassengerBehavior[] passengers;
     private float m_TotalTaskWeight;
 
     [Header("Assigning")]
@@ -45,7 +45,8 @@ public class TaskManager : MonoBehaviour
     void Start()
     {
         ResetAssignmentTimer(5f, 0f); //Initial set of timer
-        passengers = FindObjectsOfType<PassengerTask>();
+        passengers = FindObjectsOfType<PassengerBehavior>();
+
         m_NextTask = WeighTasks();
     }
 
@@ -63,7 +64,8 @@ public class TaskManager : MonoBehaviour
         }
     }
 
-    public void CompletedTask(Task task, PassengerTask passenger, bool success)
+    
+    public void CompletedTask(Task task, PassengerBehavior passenger, bool success)
     {
         AssignedTasks--;
         Debug.Log($"TASKM: Completed task ({task.name}) for {passenger.name}. success = {success}");
@@ -81,14 +83,14 @@ public class TaskManager : MonoBehaviour
         ResetAssignmentTimer();
 
         float totalChange = 0f;
-        foreach (PassengerTask passenger in passengers)
+        foreach (PassengerBehavior passenger in passengers)
         {
             totalChange += passenger.Weight();
         }
         float rand = UnityEngine.Random.Range(0f, totalChange);
 
         float cumulativeChance = 0f;
-        foreach (PassengerTask passenger in passengers)
+        foreach (PassengerBehavior passenger in passengers)
         {
             cumulativeChance += passenger.Weight();
             if (rand <= cumulativeChance)
@@ -151,7 +153,8 @@ public class Task
     [Space]
     public int maxAssignees;
     public int assigneeCount = 0;
-    public List<PassengerTask> assignedPassengers = new List<PassengerTask>();
+    public List<PassengerBehavior> assignedPassengers = new List<PassengerBehavior>();
+
     [Space]
     public float weight;
     [Space]
@@ -161,13 +164,13 @@ public class Task
     public float minWaitTime;       //how long passenger will wait for task to be completed
     public float maxWaitTime;       
 
-    public void Assign(PassengerTask passenger)
+    public void Assign(PassengerBehavior passenger)
     {
         assignedPassengers.Add(passenger);
         assigneeCount++;
     }
 
-    public void Complete(PassengerTask passenger, bool success)
+    public void Complete(PassengerBehavior passenger, bool success)
     {
         assignedPassengers.Remove(passenger);
         assigneeCount--;

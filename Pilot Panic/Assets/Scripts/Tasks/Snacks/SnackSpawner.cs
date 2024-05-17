@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SnackSpawner : InteractableBehavior
 {
-    [SerializeField] SnackBehavior ChipsPrefab;
+    [SerializeField] GameObject ChipsPrefab;
 
     private PlayerMovement player;
     void Start()
@@ -18,6 +18,5 @@ public class SnackSpawner : InteractableBehavior
     {
         var spawned = Instantiate(ChipsPrefab, player.transform);
         spawned.transform.SetParent(player.transform);
-
     }
 }

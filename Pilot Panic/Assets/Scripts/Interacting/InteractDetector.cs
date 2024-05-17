@@ -22,7 +22,6 @@ public class InteractDetector : MonoBehaviour
         if (collision.gameObject.TryGetComponent<InteractableBehavior>(out InteractableBehavior interactable))
         {
             m_NearbyInteractables.Add(interactable);
-            Debug.Log($"Add {collision.gameObject.name} from list => {m_NearbyInteractables}");
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -31,39 +30,41 @@ public class InteractDetector : MonoBehaviour
         {
             if(interactable == m_SelectedInteractable)
             {
-                CycleInteractables();
+                CycleInteractables(0);
             }
 
             m_NearbyInteractables.Remove(interactable);
-            Debug.Log($"Remove {collision.gameObject.name} from list => {m_NearbyInteractables}");
         }
     }
 
     public void CycleInteractables()
     {
-        m_SortedInteractables = m_NearbyInteractables.OrderBy((d) => (d.gameObject.transform.position - transform.position).sqrMagnitude).ToArray();
-        foreach (InteractableBehavior interactable in m_SortedInteractables)
-        {
-            Debug.Log((interactable.gameObject.transform.position - transform.position).sqrMagnitude);
-        }
-        Debug.Log($"{m_SortedInteractables.Length} Interactables in radius");
+        CycleInteractables(1);
+    }
 
+    public void CycleInteractables(int addIndex)
+    {
+        m_SortedInteractables = m_NearbyInteractables.OrderBy((d) => (d.gameObject.transform.position - transform.position).sqrMagnitude).ToArray();
+        
         if(m_SortedInteractables.Length <= 0)
         {
             m_SelectedInteractable = null;
             return;
         }
+        
+        m_SortedIndex += addIndex;
+        if (m_SortedIndex >= m_SortedInteractables.Length) { m_SortedIndex = 0; }
 
-        m_SelectedInteractable = m_SortedInteractables[0]; //need to make index
-    } 
+        m_SelectedInteractable = m_SortedInteractables[m_SortedIndex];
+    }
 
     public InteractableBehavior GetInteractable()
     {
-        if (! m_NearbyInteractables.Contains(m_SelectedInteractable))
+        if (!m_NearbyInteractables.Contains(m_SelectedInteractable))
         {
             CycleInteractables();
         }
-        Debug.Log(m_SelectedInteractable);
+        //Debug.Log(m_SelectedInteractable);
         return m_SelectedInteractable;
     }
 }

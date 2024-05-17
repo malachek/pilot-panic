@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Passenger
   - Cart
+  - Snack
+  - CartSnackCollect
   layers:
   - Default
   - TransparentFX

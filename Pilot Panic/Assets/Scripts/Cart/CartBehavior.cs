@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CartBehavior : InteractableBehavior
 {
+    [SerializeField] int cartCapacity;
     [SerializeField] PlayerMovement player;
     private HingeJoint2D joint;
+
+    [SerializeField] CartGiveSnackZone giveSnack;
 
     public bool m_IsHeld { get; private set; }
 
@@ -14,6 +18,7 @@ public class CartBehavior : InteractableBehavior
         m_IsHeld = false;
         joint = GetComponent<HingeJoint2D>();
         joint.enabled = false;
+        giveSnack.SetCapacity(cartCapacity);
     }
 
     public override void Interact()
@@ -22,5 +27,10 @@ public class CartBehavior : InteractableBehavior
         //gameObject.transform.SetParent(player.gameObject.transform, m_IsHeld);
         joint.enabled = m_IsHeld;
         Debug.Log($"IsHeld = {m_IsHeld}");
+    }
+
+    public void PickUp(SnackBehavior snack)
+    {
+        giveSnack.PickUp(snack.name);
     }
 }

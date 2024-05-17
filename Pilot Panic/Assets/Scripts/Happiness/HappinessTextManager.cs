@@ -22,6 +22,6 @@ public class HappinessTextManager : MonoBehaviour
             HappinessText.text = "GAME OVER";
             return;
         }
-        HappinessText.text = happiness.ToString();
+        HappinessText.text = $"Happiness: {happiness}";
     }
 }

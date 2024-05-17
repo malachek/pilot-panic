@@ -5,7 +5,7 @@ using UnityEngine;
 public class TaskBehavior : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
-    [SerializeField] PassengerTask passengerTask;
+    [SerializeField] PassengerBehavior passengerBehavior;
 
 
     private void OnTriggerEnter2D (Collider2D col)

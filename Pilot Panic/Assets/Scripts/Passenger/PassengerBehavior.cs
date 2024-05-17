@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using UnityEditor.VersionControl;
 using UnityEngine;
 
-public class PassengerTask : InteractableBehavior
+public class PassengerBehavior : InteractableBehavior
 {
     const float PATIENCE_AT_ZERO = .5f;
 
@@ -13,8 +13,6 @@ public class PassengerTask : InteractableBehavior
     [SerializeField] SpriteRenderer m_CharacterSpriteRenderer;
 
     public Task MyTask { get; private set; }
-    public enum PassengerState { Idle, Asking, Waiting }
-    public PassengerState MyState { get; private set; }
 
     float m_TaskPatienceTimer;
 
@@ -24,7 +22,9 @@ public class PassengerTask : InteractableBehavior
     [SerializeField] Sprite m_ExclamationTaskSprite;
     [SerializeField] float TaskIconSize;
 
-    public bool isBumped { get; private set; }
+    public bool IsBumped { get; private set; }
+    public bool IsAssignedTask { get; private set; }
+    public bool IsAcceptedTask { get; private set; }
 
 
     private void Awake()
@@ -32,20 +32,24 @@ public class PassengerTask : InteractableBehavior
         m_CharacterSpriteRenderer.sprite = m_CharacterSprite;
         m_TaskAlert.gameObject.SetActive(false);
 
-        MyState = PassengerState.Idle;
+        
+        //MyState = PassengerState.Idle;
     }
 
     private void Start()
     {
         //myInteractType = InteractType.Button;
-        isBumped = false;
+        IsBumped = false;
+        IsAssignedTask = false;
+        IsAcceptedTask = false;
+
         if (TaskIconSize <= .01f) { TaskIconSize = .5f; }
         m_TaskAlert.transform.localScale = new Vector3(TaskIconSize, TaskIconSize, 1);
     }
 
     void FixedUpdate()
     {
-        if (MyState is not PassengerState.Idle)
+        /*if (MyState is not PassengerState.Idle)
         {
             if (m_TaskPatienceTimer > 0)
             {
@@ -53,24 +57,25 @@ public class PassengerTask : InteractableBehavior
             }
             else
             {
-                CompleteTask(false);   
+                CompleteTask(false);
             }
-        }
+        }*/
     }
 
     public override void Interact()
     {
-        AcceptTask();
-        Debug.Log($"Interacted () with {gameObject.name}");
+        if (IsAssignedTask) { AcceptTask(); }
+        //Debug.Log($"Interacted () with {gameObject.name}");
         //{ myInteractType}
-        Debug.Log($"My task is {MyTask}");
+        //Debug.Log($"My task is {MyTask}");
     }
 
-
+    //KEEP
     public float Weight()
     {
         //returns 0 if state is not Idle
-        return (4 / (3 * MyHappiness) + 1) * (MyState is PassengerState.Idle ? 1 : 0);
+        if(MyHappiness <= .01f) { return 0; }//////////////////////////////////////////////
+        return (4 / (3 * MyHappiness) + 1); //* (MyState is PassengerState.Idle ? 1 : 0);
     }
 
 
@@ -88,65 +93,70 @@ public class PassengerTask : InteractableBehavior
         }
 
         m_TaskAlert.gameObject.SetActive(false);
-        
+
         GameObject.FindObjectOfType<TaskManager>().CompletedTask(MyTask, this, success);
         MyTask = null;
-        MyState = PassengerState.Idle;
+        IsAssignedTask = false;
+        IsAcceptedTask = false;
+        //MyState = PassengerState.Idle;
     }
 
     void ChangeHappiness(float happinessChange)
     {
-        float NewHappiness =  Mathf.Clamp(MyHappiness + happinessChange, 0f, 1f);
-        Debug.Log($"{gameObject.name}'s Happiness = {NewHappiness*100}% ({MyHappiness} + {happinessChange})");
+        float NewHappiness = Mathf.Clamp(MyHappiness + happinessChange, 0f, 1f);
+        Debug.Log($"{gameObject.name}'s Happiness = {NewHappiness * 100}% ({MyHappiness} + {happinessChange})");
         MyHappiness = NewHappiness;
         HappinessManager.onHappinessChange(happinessChange);
     }
 
     public void AssignTask(Task task)
     {
-        MyState = PassengerState.Asking;
+        //MyState = PassengerState.Asking;
         MyTask = task;
+        IsAssignedTask = true;
         Debug.Log($"{gameObject.name} assigned task: {MyTask.name} - {MyTask.description}");
         m_TaskAlert.sprite = m_ExclamationTaskSprite;
         m_TaskAlert.gameObject.SetActive(true);
-        m_TaskPatienceTimer = Random.Range(MyTask.minAskTime, MyTask.maxAskTime) * CalculatePatience();
-        MyState = PassengerState.Asking;
+        //m_TaskPatienceTimer = Random.Range(MyTask.minAskTime, MyTask.maxAskTime) * CalculatePatience();
+        //MyState = PassengerState.Asking;
     }
 
     private void AcceptTask()
     {
-        MyState = PassengerState.Waiting;
+        //MyState = PassengerState.Waiting;
+        IsAcceptedTask = true;
         m_TaskAlert.sprite = MyTask.sprite;
         Debug.Log($"{gameObject.name} accepted task: {MyTask.name} - {MyTask.description}");
         m_TaskAlert.gameObject.SetActive(true);
         m_TaskPatienceTimer = Random.Range(MyTask.minWaitTime, MyTask.maxWaitTime) * CalculatePatience();
-        MyState = PassengerState.Waiting;
+        //MyState = PassengerState.Waiting;
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Player") && (MyState == PassengerState.Idle))
+        if (col.gameObject.CompareTag("Player"))// && (MyState == PassengerState.Idle))
         {
-             Bumped();
+            Bumped();
         }
     }
 
     private void Bumped()
     {
-        if(!isBumped)
-        Debug.Log("OW!");
-        ChangeHappiness(- MyHappiness * (1 - MyHappiness));
+        if (!IsBumped)
+            Debug.Log("OW!");
+        ChangeHappiness(-MyHappiness * (1 - MyHappiness));
         StartCoroutine(BumpedCD());
     }
 
     private IEnumerator BumpedCD()
     {
-        isBumped = true;
+        IsBumped = true;
         yield return new WaitForSeconds(CalculatePatience());
-        isBumped = false;
+        IsBumped = false;
     }
 
-    private float CalculatePatience()
+    //KEEP
+    public float CalculatePatience()
     {
         return (1 - PATIENCE_AT_ZERO) * MyHappiness + PATIENCE_AT_ZERO;
     }

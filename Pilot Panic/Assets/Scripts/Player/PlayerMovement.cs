@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float m_Decelleration;
     
     Vector2 m_InputVector;
-    Vector2 m_VelocityVector;
+    public Vector2 m_VelocityVector;
 
     [SerializeField] InteractDetector m_InteractDetector;
     private InteractableBehavior m_SelectedInteractable;

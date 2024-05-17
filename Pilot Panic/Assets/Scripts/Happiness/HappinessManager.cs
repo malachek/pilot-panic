@@ -41,7 +41,7 @@ public class HappinessManager : MonoBehaviour
     private static int CountPassengers()
     {
         int passengerCount = 0;
-        foreach (PassengerTask passenger in GameObject.FindObjectsOfType<PassengerTask>())
+        foreach (PassengerBehavior passenger in GameObject.FindObjectsOfType<PassengerBehavior>())
         {
             passengerCount++;
         }
