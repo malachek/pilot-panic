@@ -46,6 +46,14 @@ public class InteractDetector : MonoBehaviour
         {
             Debug.Log((interactable.gameObject.transform.position - transform.position).sqrMagnitude);
         }
+        Debug.Log($"{m_SortedInteractables.Length} Interactables in radius");
+
+        if(m_SortedInteractables.Length <= 0)
+        {
+            m_SelectedInteractable = null;
+            return;
+        }
+
         m_SelectedInteractable = m_SortedInteractables[0]; //need to make index
     } 
 

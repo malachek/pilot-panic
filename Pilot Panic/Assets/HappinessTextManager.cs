@@ -17,6 +17,11 @@ public class HappinessTextManager : MonoBehaviour
     // Update is called once per frame
     public void UpdateText(float happiness)
     {
+        if (happiness <= .1f)
+        {
+            HappinessText.text = "GAME OVER";
+            return;
+        }
         HappinessText.text = happiness.ToString();
     }
 }

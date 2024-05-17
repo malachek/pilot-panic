@@ -13,20 +13,16 @@ public class PassengerTask : InteractableBehavior
     [SerializeField] SpriteRenderer m_CharacterSpriteRenderer;
 
     public Task MyTask { get; private set; }
-    [SerializeField] float m_MaxTaskAssignTime;
-   /* public bool IsAsking { get; private set; }
-    public bool IsWaiting {get; private set;}*/
     public enum PassengerState { Idle, Asking, Waiting }
     public PassengerState MyState { get; private set; }
 
     float m_TaskPatienceTimer;
 
     public float MyHappiness = 1f;
-    [SerializeField] float m_HappinessLoss;
-    [SerializeField] float m_HappinessGain;
-
 
     [SerializeField] SpriteRenderer m_TaskAlert;
+    [SerializeField] Sprite m_ExclamationTaskSprite;
+    [SerializeField] float TaskIconSize;
 
     public bool isBumped { get; private set; }
 
@@ -43,6 +39,8 @@ public class PassengerTask : InteractableBehavior
     {
         //myInteractType = InteractType.Button;
         isBumped = false;
+        if (TaskIconSize <= .01f) { TaskIconSize = .5f; }
+        m_TaskAlert.transform.localScale = new Vector3(TaskIconSize, TaskIconSize, 1);
     }
 
     void FixedUpdate()
@@ -62,6 +60,7 @@ public class PassengerTask : InteractableBehavior
 
     public override void Interact()
     {
+        AcceptTask();
         Debug.Log($"Interacted () with {gameObject.name}");
         //{ myInteractType}
         Debug.Log($"My task is {MyTask}");
@@ -75,7 +74,7 @@ public class PassengerTask : InteractableBehavior
     }
 
 
-    void CompleteTask(bool success)
+    public void CompleteTask(bool success)
     {
         if (success)
         {
@@ -105,8 +104,10 @@ public class PassengerTask : InteractableBehavior
 
     public void AssignTask(Task task)
     {
+        MyState = PassengerState.Asking;
         MyTask = task;
         Debug.Log($"{gameObject.name} assigned task: {MyTask.name} - {MyTask.description}");
+        m_TaskAlert.sprite = m_ExclamationTaskSprite;
         m_TaskAlert.gameObject.SetActive(true);
         m_TaskPatienceTimer = Random.Range(MyTask.minAskTime, MyTask.maxAskTime) * CalculatePatience();
         MyState = PassengerState.Asking;
@@ -114,6 +115,8 @@ public class PassengerTask : InteractableBehavior
 
     private void AcceptTask()
     {
+        MyState = PassengerState.Waiting;
+        m_TaskAlert.sprite = MyTask.sprite;
         Debug.Log($"{gameObject.name} accepted task: {MyTask.name} - {MyTask.description}");
         m_TaskAlert.gameObject.SetActive(true);
         m_TaskPatienceTimer = Random.Range(MyTask.minWaitTime, MyTask.maxWaitTime) * CalculatePatience();
@@ -122,20 +125,9 @@ public class PassengerTask : InteractableBehavior
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Player"))
+        if (col.gameObject.CompareTag("Player") && (MyState == PassengerState.Idle))
         {
-            switch(MyState)
-            {
-                case PassengerState.Idle:
-                    Bumped();
-                    break;
-                case PassengerState.Asking:
-                    AcceptTask();
-                    break;
-                case PassengerState.Waiting:
-                    CompleteTask(true);
-                    break;
-            }
+             Bumped();
         }
     }
 

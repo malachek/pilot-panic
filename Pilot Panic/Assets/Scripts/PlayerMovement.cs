@@ -14,16 +14,22 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] InteractDetector m_InteractDetector;
     private InteractableBehavior m_SelectedInteractable;
+    public bool m_IsInteracting { get; private set; }
+    public InteractableBehavior m_InteractingInteractable { get; private set; }
 
     [SerializeField] SpriteRenderer m_SpriteRenderer;
 
     [SerializeField] float InteractButtonHoldTime;
     float m_KeyHoldTime;
 
+    bool hasInteracted = false;
+
     void Awake()
     {
         m_InputVector = new Vector2();
         m_VelocityVector = new Vector2();
+        m_IsInteracting = false;
+        m_InteractingInteractable = null;
     }
 
     // Update is called once per frame
@@ -43,14 +49,17 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            hasInteracted = false;
             m_KeyHoldTime = 0f;
         }
 
         if (Input.GetKey(KeyCode.E))
         {
             m_KeyHoldTime += Time.deltaTime;
-            if (m_KeyHoldTime >= InteractButtonHoldTime)
+            if (m_KeyHoldTime >= InteractButtonHoldTime && !hasInteracted)
             {
+                hasInteracted = true;
+                Debug.Log($"Key hold time: {m_KeyHoldTime} | Hold time threshhold {InteractButtonHoldTime}");
                 InteractInteractable();
             }
         }
@@ -67,10 +76,26 @@ public class PlayerMovement : MonoBehaviour
 
     private void InteractInteractable()
     {
+        if (m_IsInteracting) // for cart - need to change later to be more inclusive
+        {
+            m_InteractingInteractable.Interact();
+            m_IsInteracting = false;
+            m_InteractingInteractable = null;
+            return;
+        }
+
         m_SelectedInteractable = m_InteractDetector.GetInteractable();
         if(m_SelectedInteractable == null) { return; }
 
         Debug.Log($"Interacted with {m_SelectedInteractable.gameObject.name}");
+        m_SelectedInteractable.Interact();
+
+        if(m_SelectedInteractable.gameObject.CompareTag("Cart"))
+        {
+            m_IsInteracting = true;
+            m_InteractingInteractable = m_SelectedInteractable;
+        }
+
     }
 
     private void FixedUpdate()

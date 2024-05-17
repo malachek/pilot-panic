@@ -65,6 +65,7 @@ public class TaskManager : MonoBehaviour
 
     public void CompletedTask(Task task, PassengerTask passenger, bool success)
     {
+        AssignedTasks--;
         Debug.Log($"TASKM: Completed task ({task.name}) for {passenger.name}. success = {success}");
         task.Complete(passenger, success);
         return;
@@ -141,6 +142,7 @@ public class Task
 {
     public string name;
     public string description;
+    public Sprite sprite;
     [Space]
     [Tooltip("Between 0-1f")]
     public float happinessGain;
