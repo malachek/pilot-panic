@@ -15,6 +15,7 @@ public class SnackBehavior : MonoBehaviour
         {
             PassengerTask passenger = collision.gameObject.GetComponent<PassengerTask>();
             Debug.Log(passenger.MyTask.name);
+            if(passenger.MyState != passenger.PassengerState.)
             if (passenger.MyTask.name == "Chips")
             {
                 passenger.CompleteTask(true);

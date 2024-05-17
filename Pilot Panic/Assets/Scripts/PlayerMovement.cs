@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
             if (m_KeyHoldTime >= InteractButtonHoldTime && !hasInteracted)
             {
                 hasInteracted = true;
-                Debug.Log($"Key hold time: {m_KeyHoldTime} | Hold time threshhold {InteractButtonHoldTime}");
+                //Debug.Log($"Key hold time: {m_KeyHoldTime} | Hold time threshhold {InteractButtonHoldTime}");
                 InteractInteractable();
             }
         }
