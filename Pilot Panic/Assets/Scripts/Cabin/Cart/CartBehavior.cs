@@ -33,4 +33,14 @@ public class CartBehavior : InteractableBehavior
     {
         giveSnack.PickUp(snack.name);
     }
+
+    /*public override void AssignKey(string key)
+    {
+        Key = key;
+    }
+    public override void InRange(bool isInRange)
+    {
+        IsInRange = isInRange;
+    }*/
+
 }

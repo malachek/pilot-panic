@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using TMPro;
+
 // using UnityEditor.VersionControl;
 using UnityEngine;
 
@@ -11,6 +13,7 @@ public class PassengerBehavior : InteractableBehavior
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Sprite m_CharacterSprite;
     [SerializeField] SpriteRenderer m_CharacterSpriteRenderer;
+    //[SerializeField] TextMeshPro m_KeyText;
 
     public Task MyTask { get; private set; }
 
@@ -31,8 +34,8 @@ public class PassengerBehavior : InteractableBehavior
     {
         m_CharacterSpriteRenderer.sprite = m_CharacterSprite;
         m_TaskAlert.gameObject.SetActive(false);
+        //m_KeyText.gameObject.SetActive(false);
 
-        
         //MyState = PassengerState.Idle;
     }
 
@@ -160,4 +163,17 @@ public class PassengerBehavior : InteractableBehavior
     {
         return (1 - PATIENCE_AT_ZERO) * MyHappiness + PATIENCE_AT_ZERO;
     }
+
+    /*public override void AssignKey(string key)
+    {
+        Key = key;
+        m_KeyText.text = $"[{key}]";
+    }
+    public override void InRange(bool isInRange)
+    {
+        //Debug.Log(gameObject.name + isInRange);
+        IsInRange = isInRange;
+        m_KeyText.gameObject.SetActive(isInRange);
+    }*/
+
 }

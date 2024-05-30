@@ -42,6 +42,8 @@ public class TaskManager : MonoBehaviour
         }
     }*/
 
+    
+
     void Start()
     {
         ResetAssignmentTimer(5f, 0f); //Initial set of timer

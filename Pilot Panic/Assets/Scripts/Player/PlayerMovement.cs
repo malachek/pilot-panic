@@ -19,8 +19,9 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] SpriteRenderer m_SpriteRenderer;
 
-    [SerializeField] float InteractButtonHoldTime;
-    float m_KeyHoldTime;
+    //[SerializeField] float InteractButtonHoldTime;
+    //float m_KeyHoldTime;
+    List<string> Keys;
 
     bool hasInteracted = false;
 
@@ -32,20 +33,43 @@ public class PlayerMovement : MonoBehaviour
         m_InteractingInteractable = null;
     }
 
-    // Update is called once per frame
+    private void Start()
+    {
+        Keys = FindObjectOfType<KeyAssigner>().UsedKeys;
+    }
+
     void Update()
     {
         m_InputVector.x = Input.GetAxis("Horizontal");
         m_InputVector.y = Input.GetAxis("Vertical");
 
-        DetermineKeyHeld();
-
-        //m_InputVector *= m_MovementSpeed;
-
-        //rb.velocity = m_MovementVector;
+        //DetermineKeyHeld();
+        AnyKeyDown(Keys);
     }
 
-    private void DetermineKeyHeld()
+    private bool AnyKeyDown(IEnumerable<string> keys)
+    {
+        foreach (string key in keys)
+        {
+            if (Input.GetKeyDown(key))
+            {
+                Debug.Log(key);
+                InteractWith(key);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void InteractWith(string key)
+    {
+        InteractableBehavior myInteractable = m_InteractDetector.GetInteractable(key);
+        if (myInteractable == null) return;
+
+        myInteractable.Interact();
+    }
+
+    /*private void DetermineKeyHeld()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -63,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
                 InteractInteractable();
             }
         }
+        //FOR E PRESS
         if (Input.GetKeyUp(KeyCode.E))
         {
             if (m_KeyHoldTime < InteractButtonHoldTime)
@@ -70,11 +95,9 @@ public class PlayerMovement : MonoBehaviour
                 m_InteractDetector.CycleInteractables();
             }
         }
-    }
+    }*/
 
-    
-
-    private void InteractInteractable()
+    /*private void InteractInteractable()
     {
         if (m_IsInteracting) // for cart - need to change later to be more inclusive
         {
@@ -84,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        m_SelectedInteractable = m_InteractDetector.GetInteractable();
+        //m_SelectedInteractable = m_InteractDetector.GetInteractable();
         if(m_SelectedInteractable == null) { return; }
 
         Debug.Log($"Interacted with {m_SelectedInteractable.gameObject.name}");
@@ -95,8 +118,7 @@ public class PlayerMovement : MonoBehaviour
             m_IsInteracting = true;
             m_InteractingInteractable = m_SelectedInteractable;
         }
-
-    }
+    }*/
 
     private void FixedUpdate()
     {

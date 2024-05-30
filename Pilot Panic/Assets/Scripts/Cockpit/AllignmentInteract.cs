@@ -43,4 +43,14 @@ public class PlaneHandle : InteractableBehavior
             Allignment = MaxAllignment;
         }
     }
+
+    /*public override void AssignKey(string key)
+    {
+        Key = key;
+    }
+
+    public override void InRange(bool isInRange)
+    {
+        IsInRange = isInRange;
+    }*/
 }

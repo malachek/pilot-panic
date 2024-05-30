@@ -19,4 +19,14 @@ public class SnackSpawner : InteractableBehavior
         var spawned = Instantiate(ChipsPrefab, player.transform);
         spawned.transform.SetParent(player.transform);
     }
+
+    /*public override void AssignKey(string key)
+    {
+        Key = key;
+    }
+
+    public override void InRange(bool isInRange)
+    {
+        IsInRange = isInRange;
+    }*/
 }
