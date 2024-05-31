@@ -26,8 +26,19 @@ public class PlaneHandle : InteractableBehavior
         }
 
         Allignment -= DecayRate * Time.fixedDeltaTime;
-        AllignmentText.text = Allignment.ToString("F0") + " % on course";
         
+       
+
+        AllignmentText.text = Allignment.ToString("AUTOPILOT ON" /*+ " 0"*/);
+
+        if (Allignment < 50.00f)
+        {
+            AllignmentText.text= Allignment.ToString("AUTOPILOT OFF" /*+ " 0"*/);
+        
+        }
+
+
+
         if (Allignment <= 0f)
         {
             Debug.Log("Game Over");
@@ -38,9 +49,12 @@ public class PlaneHandle : InteractableBehavior
 
     public override void Interact()
     {
-        if (Allignment > 0.01f)
+        if (Allignment > 0.01f && Allignment<98.01f)
         {
-            Allignment = MaxAllignment;
+              Allignment = MaxAllignment;
+            
+
+            
         }
     }
 
