@@ -27,17 +27,42 @@ public class PlaneHandle : InteractableBehavior
 
         Allignment -= DecayRate * Time.fixedDeltaTime;
         
-       
+         
 
         AllignmentText.text = Allignment.ToString("AUTOPILOT ON" /*+ " 0"*/);
 
-        if (Allignment < 50.00f)
+
+         if (Allignment < 100.00f)
         {
-            AllignmentText.text= Allignment.ToString("AUTOPILOT OFF" /*+ " 0"*/);
+            
+
+            CinemachineShake.Instance.ShakeCamera(.1f, .1f);
         
         }
 
+        if (Allignment < 25.00f)
+        {
+            AllignmentText.text= Allignment.ToString("AUTOPILOT OFF" /*+ " 0"*/);
 
+            CinemachineShake.Instance.ShakeCamera(.2f, .1f);
+        
+        }
+
+          if (Allignment < 15.00f)
+        {
+            
+
+            CinemachineShake.Instance.ShakeCamera(.5f, .1f);
+        
+        }
+
+         if (Allignment < 10.00f)
+        {
+            
+
+            CinemachineShake.Instance.ShakeCamera(.7f, .1f);
+        
+        }
 
         if (Allignment <= 0f)
         {

@@ -12,6 +12,7 @@ public class RoomCamera : MonoBehaviour
         if (col.CompareTag("Player"))
         {
             virtualCamera.SetActive(true);
+          
         }
     }
 

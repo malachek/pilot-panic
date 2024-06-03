@@ -18,6 +18,7 @@ public class PlungerSpawner : InteractableBehavior
     {
         var spawned = Instantiate(PlungerPrefab, player.transform);
         spawned.transform.SetParent(player.transform);
+        
     }
 
     /*public override void AssignKey(string key)
