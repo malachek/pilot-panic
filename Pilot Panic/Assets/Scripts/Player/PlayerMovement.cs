@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] InteractDetector m_InteractDetector;
     private InteractableBehavior m_SelectedInteractable;
-    public InteractableBehavior myInteractable;
+    public PickupableBehavior myPickUp;
     public bool m_IsInteracting { get; private set; }
     public InteractableBehavior m_InteractingInteractable { get; private set; }
 
@@ -67,8 +67,14 @@ public class PlayerMovement : MonoBehaviour
         InteractableBehavior Interactable = m_InteractDetector.GetInteractable(key);
         if (Interactable == null) return;
 
-        Interactable.Interact();
-        myInteractable = Interactable;
+        PickupableBehavior newPickUp = Interactable.GetInteract();
+        Debug.Log($"Picked Up: {newPickUp}");
+
+        if (newPickUp is null) return;
+
+        myPickUp?.Drop();
+        myPickUp = newPickUp;
+        
     }
 
 

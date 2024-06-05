@@ -13,11 +13,11 @@ public class EdoorInteract : InteractableBehavior
         player = FindObjectOfType<PlayerMovement>();
     }
 
-
-    public override void Interact()
+    public override PickupableBehavior GetInteract()
     {
         var spawned = Instantiate(EDoorPrefab, player.transform);
         spawned.transform.SetParent(player.transform);
+        return null;
     }
 
 

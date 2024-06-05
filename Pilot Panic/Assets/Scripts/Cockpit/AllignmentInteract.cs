@@ -73,15 +73,15 @@ public class PlaneHandle : InteractableBehavior
 
     }
 
-    public override void Interact()
+    public override PickupableBehavior GetInteract()
     {
-        if (Allignment > 0.01f && Allignment<98.01f)
+        if (Allignment > 0.01f && Allignment < 98.01f)
         {
-              Allignment = MaxAllignment;
-            
+            Allignment = MaxAllignment;
 
-            
+
         }
+        return null;
     }
 
     /*public override void AssignKey(string key)

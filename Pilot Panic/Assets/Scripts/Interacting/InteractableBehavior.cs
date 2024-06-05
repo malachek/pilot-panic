@@ -9,10 +9,10 @@ public class InteractableBehavior : MonoBehaviour
     public string Key { get; protected set; }
     public bool IsInRange { get; protected set; }
 
-    
-    public virtual void Interact()
+    public virtual PickupableBehavior GetInteract()
     {
         Debug.Log($"Interacted with {gameObject.name}. Nothing happened.");
+        return null;
     }
 
     private void Awake()

@@ -65,12 +65,13 @@ public class PassengerBehavior : InteractableBehavior
         }*/
     }
 
-    public override void Interact()
+    public override PickupableBehavior GetInteract()
     {
         if (IsAssignedTask) { AcceptTask(); }
         //Debug.Log($"Interacted () with {gameObject.name}");
         //{ myInteractType}
         //Debug.Log($"My task is {MyTask}");
+        return null;
     }
 
     //KEEP

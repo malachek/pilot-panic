@@ -21,12 +21,14 @@ public class CartBehavior : InteractableBehavior
         giveSnack.SetCapacity(cartCapacity);
     }
 
-    public override void Interact()
+    public override PickupableBehavior GetInteract()
     {
-        m_IsHeld = !m_IsHeld; 
+        m_IsHeld = !m_IsHeld;
         //gameObject.transform.SetParent(player.gameObject.transform, m_IsHeld);
         joint.enabled = m_IsHeld;
         Debug.Log($"IsHeld = {m_IsHeld}");
+        return null;
+        //return this.gameObject;
     }
 
     public void PickUp(SnackBehavior snack)

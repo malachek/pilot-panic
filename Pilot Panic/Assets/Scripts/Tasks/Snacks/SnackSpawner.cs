@@ -2,23 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SnackSpawner : InteractableBehavior
+public class SnackSpawner : PickupSpawner
 {
-    [SerializeField] GameObject ChipsPrefab;
+    //[SerializeField] GameObject ChipsPrefab;
 
-    private PlayerMovement player;
-    void Start()
-    {
-        player = FindObjectOfType<PlayerMovement>();
-    }
+    //private PlayerMovement player;
+    //void Start()
+    //{
+    //    player = FindObjectOfType<PlayerMovement>();
+    //}
 
 
 
-    public override void Interact()
-    {
-        var spawned = Instantiate(ChipsPrefab, player.transform);
-        spawned.transform.SetParent(player.transform);
-    }
+    //public override void Interact()
+    //{
+    //    var spawned = Instantiate(ChipsPrefab, player.transform);
+    //    spawned.transform.SetParent(player.transform);
+    //}
 
     /*public override void AssignKey(string key)
     {
