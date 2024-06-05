@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HappinessManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class HappinessManager : MonoBehaviour
 
     public delegate void OnHappinessChange(float change);
     public static OnHappinessChange onHappinessChange;
+
+    public delegate void GameOverDelegate();
+    public static GameOverDelegate OnGameOver;
 
     static HappinessManager _instance;
     void Awake()
@@ -28,6 +32,12 @@ public class HappinessManager : MonoBehaviour
             Destroy(this);
         }
         NewGame();
+    }
+
+
+    public static HappinessManager Instance()
+    {
+        return _instance;
     }
 
     public static void NewGame()
@@ -51,6 +61,7 @@ public class HappinessManager : MonoBehaviour
     private void Start()
     {
         onHappinessChange += ChangeHappiness;
+        OnGameOver += GameOver;
     }
 
     public static void ChangeHappiness(float change)
@@ -64,8 +75,15 @@ public class HappinessManager : MonoBehaviour
         if (Happiness <= 0f)
         {
             Debug.Log("GAME OVER");
+            GameOver();
             return;
         }
         HappinessText.UpdateText(Happiness);
+    }
+
+    public static void GameOver()
+    {
+        SceneManager.LoadScene("Menu");
+        _instance.Awake();
     }
 }

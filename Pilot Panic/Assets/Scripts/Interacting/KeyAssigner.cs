@@ -32,6 +32,10 @@ public class KeyAssigner : MonoBehaviour
             }
             int keyIndex = Random.Range(0, KeysList.Count);
 
+            if (interactable is PassengerBehavior)
+            {
+                ((PassengerBehavior)interactable).MyHappiness = 1f;
+            }
             interactable.AssignKey(KeysList[keyIndex]);
             Debug.Log($"{interactable.name} is {KeysList[keyIndex]}");
             UsedKeys.Add(KeysList[keyIndex]);

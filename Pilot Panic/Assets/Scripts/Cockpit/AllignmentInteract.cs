@@ -22,6 +22,7 @@ public class PlaneHandle : InteractableBehavior
     {
         if (Allignment <= 0f)
         {
+            HappinessManager.OnGameOver();
             return;
         }
 
