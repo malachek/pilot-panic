@@ -36,7 +36,7 @@ public class PlaneHandle : InteractableBehavior
         {
             
 
-            CinemachineShake.Instance.ShakeCamera(.1f, .1f);
+            CinemachineShake.Instance.ShakeCamera(.0f, .1f);
         
         }
 
@@ -44,7 +44,7 @@ public class PlaneHandle : InteractableBehavior
         {
             AllignmentText.text= Allignment.ToString("AUTOPILOT OFF" /*+ " 0"*/);
 
-            CinemachineShake.Instance.ShakeCamera(.2f, .1f);
+            CinemachineShake.Instance.ShakeCamera(.05f, .1f);
         
         }
 
@@ -52,7 +52,7 @@ public class PlaneHandle : InteractableBehavior
         {
             
 
-            CinemachineShake.Instance.ShakeCamera(.5f, .1f);
+            CinemachineShake.Instance.ShakeCamera(.2f, .1f);
         
         }
 
@@ -60,7 +60,7 @@ public class PlaneHandle : InteractableBehavior
         {
             
 
-            CinemachineShake.Instance.ShakeCamera(.7f, .1f);
+            CinemachineShake.Instance.ShakeCamera(.5f, .1f);
         
         }
 
