@@ -3,24 +3,26 @@ using System.Collections.Generic;
 // using UnityEditor.UI;
 using UnityEngine;
 
-public class SnackBehavior : MonoBehaviour
+public class SnackBehavior : PickupableBehavior
 {
-    [SerializeField] GameObject parent;
-    PlayerMovement player;
+    //[SerializeField] GameObject parent;
+    //PlayerMovement player;
     bool inCart;
 
-    private void Start()
+    protected override void Start()
     {
         //Vector3 newRotation = new Vector3(0, Random.Range(-45f, 45f), 0);
         //this.transform.eulerAngles = newRotation;
         inCart = false;
-        player = FindAnyObjectByType<PlayerMovement>();
+        base.Start();
+        //player = FindAnyObjectByType<PlayerMovement>();
     }
 
     private void Update()
     {
         if (inCart) { return; }
-        gameObject.transform.localPosition = player.m_VelocityVector / 5;    
+        base.SetPosition(); ;
+        //gameObject.transform.localPosition = player.m_VelocityVector / 5;    
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -34,7 +36,7 @@ public class SnackBehavior : MonoBehaviour
             if (passenger.MyTask.name == "Chips" && passenger.IsAcceptedTask)
             {
                 passenger.CompleteTask(true);
-                Destroy(parent);
+                DestroyMe();
             }
         }
         if(collision.CompareTag("CartSnackCollect"))
@@ -44,7 +46,7 @@ public class SnackBehavior : MonoBehaviour
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
             parent.transform.SetParent(collision.gameObject.transform);*/
             collision.transform.parent.GetComponent<CartBehavior>().PickUp(this);
-            Destroy(parent);
+            DestroyMe();
         }
     }
 }
