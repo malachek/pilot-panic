@@ -29,7 +29,7 @@ public class DestinationFlight : MonoBehaviour
         return _instance;
     }
 
- void FixedUpdate()
+    void FixedUpdate()
     {
         if (FlightLength >= 99.91f)
         {
@@ -39,18 +39,10 @@ public class DestinationFlight : MonoBehaviour
         }
 
         FlightLength += PlaneSpeed * Time.fixedDeltaTime;
-        
-        FlightLengthText.text = FlightLength.ToString("FLIGHT COMPLETION" + " 0");
 
-       
+        FlightLengthText.text = $"{FlightLength:00}% to Desitination";
+        //FlightLength.ToString("FLIGHT COMPLETION" + " 0");
 
-
-        
-
-        
     }
-
-    
-
     
 }

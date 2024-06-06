@@ -22,6 +22,6 @@ public class HappinessTextManager : MonoBehaviour
             HappinessText.text = "GAME OVER";
             return;
         }
-        HappinessText.text = $"Happiness: {happiness:0:00}";
+        HappinessText.text = $"Happiness: {happiness:00}%";
     }
 }

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef2a3ec2eb7b0204bb7a51e05036c7ec, type: 3}
+  m_Name: M Brunette White
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 1938837746, guid: dfc39f7dbe2367841936241e239fccb1, type: 3}
+  - {fileID: -1191805543, guid: dfc39f7dbe2367841936241e239fccb1, type: 3}
+  - {fileID: -1552284745, guid: dfc39f7dbe2367841936241e239fccb1, type: 3}
+  happinessGainMultiplier: 1
+  happinessLossMultiplier: 1
+  patienceAtZero: 0.5
+  moodMilestones:
+  - 1
+  - 0.7
+  - 0.4
