@@ -552,7 +552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_KeyText: {fileID: 459782448}
-  passengerStats: {fileID: 0}
+  passengerStats: {fileID: 11400000, guid: 370b3fa3ab5fa3546a5af59c7a590486, type: 2}
   rb: {fileID: 102002978}
   m_CharacterSpriteRenderer: {fileID: 619494836}
   MyHappiness: 1
@@ -1286,7 +1286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_KeyText: {fileID: 1921510057}
-  passengerStats: {fileID: 0}
+  passengerStats: {fileID: 11400000, guid: ae2dd1d0045c66043ae62ba1cc209598, type: 2}
   rb: {fileID: 184826066}
   m_CharacterSpriteRenderer: {fileID: 60636552}
   MyHappiness: 1
@@ -1941,7 +1941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_KeyText: {fileID: 1956515232}
-  passengerStats: {fileID: 0}
+  passengerStats: {fileID: 11400000, guid: ae148a59bb40ad541af230e278afc739, type: 2}
   rb: {fileID: 273034822}
   m_CharacterSpriteRenderer: {fileID: 2052935043}
   MyHappiness: 1
@@ -6385,7 +6385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_KeyText: {fileID: 1376694173}
-  passengerStats: {fileID: 0}
+  passengerStats: {fileID: 11400000, guid: 00b620c7323b01248bd33fa9add231e3, type: 2}
   rb: {fileID: 1134406897}
   m_CharacterSpriteRenderer: {fileID: 298718375}
   MyHappiness: 1
@@ -6889,7 +6889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_KeyText: {fileID: 1763212312}
-  passengerStats: {fileID: 0}
+  passengerStats: {fileID: 11400000, guid: 1c160982ce36ed14fa25e25f4447606c, type: 2}
   rb: {fileID: 1248750914}
   m_CharacterSpriteRenderer: {fileID: 1515127474}
   MyHappiness: 1
@@ -10463,7 +10463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_KeyText: {fileID: 1864607184}
-  passengerStats: {fileID: 0}
+  passengerStats: {fileID: 11400000, guid: 6b872c52dbc7d054183703f2cd8f7be5, type: 2}
   rb: {fileID: 1795255949}
   m_CharacterSpriteRenderer: {fileID: 254862398}
   MyHappiness: 1
@@ -11095,7 +11095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_KeyText: {fileID: 1509465217}
-  passengerStats: {fileID: 0}
+  passengerStats: {fileID: 11400000, guid: b1f8767a07b5fe34ea2d1755c6206c5d, type: 2}
   rb: {fileID: 1878517876}
   m_CharacterSpriteRenderer: {fileID: 1294286350}
   MyHappiness: 1
@@ -12562,7 +12562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_KeyText: {fileID: 1450748473}
-  passengerStats: {fileID: 0}
+  passengerStats: {fileID: 11400000, guid: 1ab9e20fb8ae12c4890829a603d5df79, type: 2}
   rb: {fileID: 2103217635}
   m_CharacterSpriteRenderer: {fileID: 1623997406}
   MyHappiness: 1
