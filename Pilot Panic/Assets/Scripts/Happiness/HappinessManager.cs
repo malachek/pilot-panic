@@ -18,6 +18,9 @@ public class HappinessManager : MonoBehaviour
     public delegate void GameOverDelegate();
     public static GameOverDelegate OnGameOver;
 
+    public delegate void GameWinDelegate();
+    public static GameWinDelegate OnGameWin;
+
     static HappinessManager _instance;
     void Awake()
     {
@@ -86,4 +89,11 @@ public class HappinessManager : MonoBehaviour
         SceneManager.LoadScene("Menu");
         _instance.Awake();
     }
+    
+    public static void GameWin()
+    {
+        SceneManager.LoadScene("Win");
+        _instance.Awake();
+    }
+
 }

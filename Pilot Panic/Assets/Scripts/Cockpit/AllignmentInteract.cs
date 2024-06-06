@@ -33,11 +33,11 @@ public class PlaneHandle : InteractableBehavior
         AllignmentText.text = Allignment.ToString("AUTOPILOT ON" /*+ " 0"*/);
 
 
-         if (Allignment < 100.00f)
+        if (Allignment < 100.00f)
         {
             
 
-            CinemachineShake.Instance.ShakeCamera(.0f, .1f);
+            //CinemachineShake.Instance.ShakeCamera(.0f, .1f);
         
         }
 
@@ -49,15 +49,15 @@ public class PlaneHandle : InteractableBehavior
         
         }
 
-          if (Allignment < 15.00f)
+        if (Allignment < 15.00f)
         {
             
-
+            AllignmentText.text= Allignment.ToString("AUTOPILOT OFF" + " 0");
             CinemachineShake.Instance.ShakeCamera(.2f, .1f);
         
         }
 
-         if (Allignment < 10.00f)
+        if (Allignment < 10.00f)
         {
             
 

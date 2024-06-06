@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
+    static UIController _instance;
+
+     public static UIController Instance()
+    {
+        return _instance;
+    }
     public void StartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -30,5 +36,18 @@ public class UIController : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
+
+     public void MainMenu()
+    {   Time.timeScale = 1f;
+        SceneManager.LoadScene("Menu");
+        //_instance.Awake();
+        
+    }
+
+     
+        
+        
+    
+
 
 }
