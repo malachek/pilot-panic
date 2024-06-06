@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef2a3ec2eb7b0204bb7a51e05036c7ec, type: 3}
-  m_Name: F Stupidass Bitch
+  m_Name: F Elegant Lady
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 1358734155, guid: 732e4e9a8e5c65640941ddc79804ce20, type: 3}
