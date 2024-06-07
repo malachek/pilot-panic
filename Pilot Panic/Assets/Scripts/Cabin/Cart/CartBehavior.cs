@@ -7,7 +7,12 @@ public class CartBehavior : InteractableBehavior
 {
     [SerializeField] int cartCapacity;
     [SerializeField] PlayerMovement player;
-    private HingeJoint2D joint;
+    [SerializeField] HingeJoint2D joint;
+
+    [SerializeField]
+    Sprite[] m_CartSprites;
+    [SerializeField]
+    SpriteRenderer CartSR;
 
     [SerializeField] CartGiveSnackZone giveSnack;
 
@@ -16,9 +21,10 @@ public class CartBehavior : InteractableBehavior
     private void Awake()
     {
         m_IsHeld = false;
-        joint = GetComponent<HingeJoint2D>();
+        //joint = GetComponent<HingeJoint2D>();
         joint.enabled = false;
         giveSnack.SetCapacity(cartCapacity);
+        CartSR.sprite = m_CartSprites[0];
     }
 
     public override PickupableBehavior GetInteract()
@@ -34,6 +40,13 @@ public class CartBehavior : InteractableBehavior
     public void PickUp(SnackBehavior snack)
     {
         giveSnack.PickUp(snack.name);
+    }
+
+    public override void InRange(bool isInRange)
+    {
+        Debug.Log(isInRange);
+        CartSR.sprite = m_CartSprites[isInRange ? 1 : 0];
+        base.InRange(isInRange);
     }
 
     /*public override void AssignKey(string key)

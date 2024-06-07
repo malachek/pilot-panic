@@ -26,7 +26,7 @@ public class InteractableBehavior : MonoBehaviour
         m_KeyText.text = $"[{key}]";
         m_KeyText.gameObject.SetActive(false);
     }
-    public void InRange(bool isInRange)
+    public virtual void InRange(bool isInRange)
     {
         //Debug.Log(gameObject.name + isInRange);
         IsInRange = isInRange;
