@@ -86,7 +86,7 @@ public class HappinessManager : MonoBehaviour
 
     public static void GameOver()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("SadLose");
         _instance.Awake();
     }
     
