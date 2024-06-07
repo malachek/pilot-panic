@@ -84,16 +84,18 @@ public class TaskManager : MonoBehaviour
 
         ResetAssignmentTimer();
 
-        float totalChange = 0f;
+        float totalChance = 0f;
         foreach (PassengerBehavior passenger in passengers)
         {
-            totalChange += passenger.Weight();
+            if (passenger.MyTask is not null) continue;
+            totalChance += passenger.Weight();
         }
-        float rand = UnityEngine.Random.Range(0f, totalChange);
+        float rand = UnityEngine.Random.Range(0f, totalChance);
 
         float cumulativeChance = 0f;
         foreach (PassengerBehavior passenger in passengers)
         {
+            if (passenger.MyTask is not null) continue;
             cumulativeChance += passenger.Weight();
             if (rand <= cumulativeChance)
             {

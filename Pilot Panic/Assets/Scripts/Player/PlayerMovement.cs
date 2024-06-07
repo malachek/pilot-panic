@@ -13,18 +13,13 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 m_VelocityVector;
 
     [SerializeField] InteractDetector m_InteractDetector;
-    private InteractableBehavior m_SelectedInteractable;
     public PickupableBehavior myPickUp;
     public bool m_IsInteracting { get; private set; }
     public InteractableBehavior m_InteractingInteractable { get; private set; }
 
     [SerializeField] SpriteRenderer m_SpriteRenderer;
 
-    //[SerializeField] float InteractButtonHoldTime;
-    //float m_KeyHoldTime;
     List<string> Keys;
-
-    bool hasInteracted = false;
 
     void Awake()
     {
