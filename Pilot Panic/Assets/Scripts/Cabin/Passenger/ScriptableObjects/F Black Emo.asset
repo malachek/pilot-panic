@@ -16,8 +16,8 @@ MonoBehaviour:
   - {fileID: 1256877867, guid: da0da582443225741ae07a732e313588, type: 3}
   - {fileID: -920663212, guid: da0da582443225741ae07a732e313588, type: 3}
   - {fileID: -1280659788, guid: da0da582443225741ae07a732e313588, type: 3}
-  happinessGainMultiplier: 1.72
-  happinessLossMultiplier: 1.56
+  happinessGainMultiplier: 1
+  happinessLossMultiplier: 1
   patienceAtZero: 0.27
   moodMilestones:
   - 1
