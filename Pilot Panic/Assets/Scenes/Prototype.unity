@@ -2117,7 +2117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxFlightLength: 100
-  PlaneSpeed: 1
+  PlaneSpeed: 0.5
   FlightLengthText: {fileID: 1619215500}
 --- !u!1 &289930081
 GameObject:
