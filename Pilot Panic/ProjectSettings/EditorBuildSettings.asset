@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CrashLose.unity
     guid: ccc206bcb2616b54595b9015457ae51b
+  - enabled: 1
+    path: Assets/Scenes/SadLose.unity
+    guid: 1709177c0ed73564689b385fca370910
   m_configObjects: {}
