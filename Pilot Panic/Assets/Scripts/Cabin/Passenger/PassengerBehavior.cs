@@ -121,6 +121,7 @@ public class PassengerBehavior : InteractableBehavior
         Debug.Log($"{gameObject.name} assigned task: {MyTask.name} - {MyTask.description}");
         m_TaskAlert.sprite = m_ExclamationTaskSprite;
         m_TaskAlert.gameObject.SetActive(true);
+        if (IsInRange) InRange(true);
     }
 
     private void AcceptTask()
@@ -130,6 +131,7 @@ public class PassengerBehavior : InteractableBehavior
         Debug.Log($"{gameObject.name} accepted task: {MyTask.name} - {MyTask.description}");
         m_TaskAlert.gameObject.SetActive(true);
         m_TaskPatienceTimer = Random.Range(MyTask.minWaitTime, MyTask.maxWaitTime) * CalculatePatience();
+        if (IsInRange) InRange(true);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -159,5 +161,12 @@ public class PassengerBehavior : InteractableBehavior
     public float CalculatePatience()
     {
         return (1 - m_PatienceAtZero) * MyHappiness + m_PatienceAtZero;
+    }
+
+    public override void InRange(bool isInRange)
+    {
+        //Debug.Log(gameObject.name + isInRange);
+        IsInRange = isInRange;
+        m_KeyText.gameObject.SetActive((IsAssignedTask || IsAcceptedTask) && isInRange);
     }
 }
