@@ -74,7 +74,7 @@ public class HappinessManager : MonoBehaviour
         Happiness = CurrentTotalHappiness / MaxTotalHappiness * 100f;
         Debug.Log($"{CurrentTotalHappiness} / {MaxTotalHappiness} * 100f = {Happiness}");
 
-        if(Happiness > 100f) { Happiness = 100f; }
+        if(Happiness > 100f) Happiness = 100f;
         if (Happiness <= 0f)
         {
             Debug.Log("GAME OVER");

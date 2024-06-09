@@ -6,13 +6,23 @@ public class RoomCamera : MonoBehaviour
 {
 
     [SerializeField] GameObject virtualCamera;
+    [SerializeField] CinemachineShake shaker;
+
+    public PlaneHandle alligner;
+
+    private void Awake()
+    {
+        Debug.Log("Awake method called in RoomCamera");
+        alligner = FindObjectOfType<PlaneHandle>();
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player"))
         {
             virtualCamera.SetActive(true);
-          
+            alligner.SetCamera(virtualCamera);
+            //shaker.AllowShaking(true);
         }
     }
 
@@ -20,6 +30,7 @@ public class RoomCamera : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
+            //shaker.AllowShaking(false);
             virtualCamera.SetActive(false);
         }
     }

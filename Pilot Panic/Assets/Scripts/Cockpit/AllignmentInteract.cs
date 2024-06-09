@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 public class PlaneHandle : InteractableBehavior
 {
@@ -11,12 +12,23 @@ public class PlaneHandle : InteractableBehavior
 
     [SerializeField] TextMeshPro AllignmentText;
 
+    public GameObject currentCamera { get; private set; }
+
     float Allignment;
     // Start is called before the first frame update
     void Awake()
     {
         AllignmentText.text = Allignment.ToString("AUTOPILOT: [ON]");
         Allignment = MaxAllignment;
+        Debug.Log($"HAAAAAA {CinemachineShake.Instance}");
+        Debug.Log($"Awake method called from {this.transform.name}");
+    }
+
+    public void SetCamera(GameObject cam)
+    {
+        currentCamera = cam;
+        CinemachineShake.Instance.SetCamera(cam.GetComponent<CinemachineVirtualCamera>());
+        Debug.Log($"Active camera: {currentCamera}");
     }
 
     // Update is called once per frame
@@ -60,8 +72,9 @@ public class PlaneHandle : InteractableBehavior
     {
         if (Allignment > 0.01f && Allignment < 98.01f)
         {
-            AllignmentText.text = Allignment.ToString("AUTOPILOT: [ON]" /*+ " 0"*/);
             Allignment = MaxAllignment;
+            AllignmentText.text = Allignment.ToString("AUTOPILOT: [ON]" /*+ " 0"*/);
+            CinemachineShake.Instance.ShakeCamera(0f, .1f);
         }
         return null;
     }
