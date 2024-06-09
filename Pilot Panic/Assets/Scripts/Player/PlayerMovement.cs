@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float m_Acceleration;
     [SerializeField] float m_Decelleration;
     
-    Vector2 m_InputVector;
+    public Vector2 m_InputVector;
     public Vector2 m_VelocityVector;
 
     [SerializeField] InteractDetector m_InteractDetector;
@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] SpriteRenderer m_SpriteRenderer;
 
     List<string> Keys;
+
+    public bool isWalking = false;
 
     void Awake()
     {
@@ -38,6 +40,17 @@ public class PlayerMovement : MonoBehaviour
     {
         m_InputVector.x = Input.GetAxis("Horizontal");
         m_InputVector.y = Input.GetAxis("Vertical");
+
+
+        //if player is moving
+        if(m_InputVector.x !=0|| m_InputVector.y !=0)
+        {
+            isWalking = true;
+        }
+        else
+        {
+            isWalking = false;
+        }
 
         //DetermineKeyHeld();
         AnyKeyDown(Keys);
