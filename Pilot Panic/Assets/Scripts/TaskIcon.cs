@@ -29,14 +29,7 @@ public class TaskIcon : MonoBehaviour
     public void AssignedTask(Task task, float askTime)
     {
         SetActiveSprite(m_ExclamationTaskSprite);
-        //StopAllCoroutines();
-        //m_TaskAlert.color = Color.white;
-        //m_TaskAlert.transform.localScale = new Vector3(TaskIconSize, TaskIconSize, 1);
-        //m_TaskAlert.sprite = m_ExclamationTaskSprite;
 
-        //m_TaskSprite = task.sprite;
-
-        //m_TaskAlert.gameObject.SetActive(true);
         m_TaskSprite = task.sprite;
         StartCoroutine(TimerGradient(askTime));
     }
@@ -44,13 +37,6 @@ public class TaskIcon : MonoBehaviour
     public void AcceptedTask(float waitTime)
     {
         SetActiveSprite(m_TaskSprite);
-        //StopAllCoroutines();
-        //m_TaskAlert.color = Color.white;
-        //m_TaskAlert.transform.localScale = new Vector3(TaskIconSize, TaskIconSize, 1);
-
-        //m_TaskAlert.sprite = m_TaskSprite;
-
-        //m_TaskAlert.gameObject.SetActive(true);
 
         StartCoroutine(TimerBlink(waitTime));
     }
