@@ -133,7 +133,7 @@ public class PassengerBehavior : InteractableBehavior
         Debug.Log($"{gameObject.name} accepted task: {MyTask.name} - {MyTask.description}");
 
         //taskIconManager.AcceptedTask(m_TaskPatienceTimer);
-
+         FMODUnity.RuntimeManager.PlayOneShot("event:/TaskComplete", GetComponent<Transform>().position);
         if (IsInRange) InRange(true);
     }
 
