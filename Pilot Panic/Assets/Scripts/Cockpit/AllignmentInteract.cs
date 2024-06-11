@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Cinemachine;
+using FMODUnity;
 
 public class PlaneHandle : InteractableBehavior
 {
@@ -44,6 +45,7 @@ public class PlaneHandle : InteractableBehavior
             case <= 0.01f:
                 AllignmentText.text = Allignment.ToString($"Uh oh...");
                 SceneManager.LoadScene("CrashLose");
+                FMODUnity.RuntimeManager.PlayOneShot("event:/GameOver");
                 break;
 
             case <= 10f:

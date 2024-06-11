@@ -74,6 +74,26 @@ MonoBehaviour:
   - Name: Desktop
     Value: 22944
   Exists: 1
+--- !u!114 &-1219685086937000065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Game Scenes.bank
+  m_EditorClassIdentifier: 
+  Path: ../../../FMOD Studio/Pilot Panic/Build/Desktop/Game Scenes.bank
+  Name: Game Scenes
+  StudioPath: bank:/Game Scenes
+  lastModified: 638536981252319227
+  FileSizes:
+  - Name: Desktop
+    Value: 17728
+  Exists: 1
 --- !u!114 &-786991608123332980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,17 +131,19 @@ MonoBehaviour:
   - {fileID: 5345553922442646511}
   - {fileID: -786991608123332980}
   - {fileID: -4300631720082979172}
+  - {fileID: -1219685086937000065}
   EditorEvents:
   - {fileID: 2690569170056128967}
   - {fileID: -7914852534764874157}
   - {fileID: 3462615473621053622}
   - {fileID: -7644756905267369874}
+  - {fileID: 5916106987491100308}
   EditorParameters: []
   MasterBanks:
   - {fileID: 5345553922442646511}
   StringsBanks:
   - {fileID: 6194871671668382490}
-  cacheTime: 638536968481121375
+  cacheTime: 638536981252319227
   cacheVersion: 131618
 --- !u!114 &2690569170056128967
 MonoBehaviour:
@@ -192,11 +214,38 @@ MonoBehaviour:
   Path: ../../../FMOD Studio/Pilot Panic/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638536963402994462
+  lastModified: 638536981251414809
   FileSizes:
   - Name: Desktop
     Value: 1036
   Exists: 1
+--- !u!114 &5916106987491100308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/GameOver
+  m_EditorClassIdentifier: 
+  Path: event:/GameOver
+  Guid:
+    Data1: 149953427
+    Data2: 1085305864
+    Data3: -828397673
+    Data4: -1318232365
+  Banks:
+  - {fileID: -1219685086937000065}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &6194871671668382490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,8 +261,8 @@ MonoBehaviour:
   Path: ../../../FMOD Studio/Pilot Panic/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638536963403004463
+  lastModified: 638536981251429835
   FileSizes:
   - Name: Desktop
-    Value: 992
+    Value: 1074
   Exists: 1

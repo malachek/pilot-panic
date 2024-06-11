@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using FMODUnity;
 
 public class HappinessManager : MonoBehaviour
 {
@@ -87,6 +88,7 @@ public class HappinessManager : MonoBehaviour
     public static void GameOver()
     {
         SceneManager.LoadScene("SadLose");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/GameOver");
         _instance.Awake();
     }
     
