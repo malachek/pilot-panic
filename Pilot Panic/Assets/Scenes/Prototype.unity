@@ -518,13 +518,14 @@ GameObject:
   - component: {fileID: 102002975}
   - component: {fileID: 102002978}
   - component: {fileID: 102002977}
+  - component: {fileID: 102002979}
   m_Layer: 3
   m_Name: Passenger - M Drake
   m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &102002974
 Transform:
   m_ObjectHideFlags: 0
@@ -571,7 +572,7 @@ MonoBehaviour:
   passengerStats: {fileID: 11400000, guid: 370b3fa3ab5fa3546a5af59c7a590486, type: 2}
   rb: {fileID: 102002978}
   m_CharacterSpriteRenderer: {fileID: 619494836}
-  taskIconManager: {fileID: 0}
+  taskIconManager: {fileID: 102002979}
   MyHappiness: 1
 --- !u!70 &102002977
 CapsuleCollider2D:
@@ -635,6 +636,51 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &102002979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102002973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d53437f870c495a92cbadcfcec5191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TaskAlert: {fileID: 1811637785}
+  m_ExclamationTaskSprite: {fileID: 21300000, guid: 67791f54cff3745c89fdb15d60a2f5d9, type: 3}
+  TaskIconSize: 0.5
+  TaskGradient:
+    serializedVersion: 2
+    key0: {r: 0, g: 1, b: 0, a: 1}
+    key1: {r: 1, g: 1, b: 0, a: 1}
+    key2: {r: 1, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 10794
+    ctime1: 32768
+    ctime2: 52043
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
 --- !u!1 &109519153
 GameObject:
   m_ObjectHideFlags: 0
@@ -1250,13 +1296,14 @@ GameObject:
   - component: {fileID: 184826063}
   - component: {fileID: 184826066}
   - component: {fileID: 184826065}
+  - component: {fileID: 184826067}
   m_Layer: 3
   m_Name: Passenger - M Black White
   m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &184826062
 Transform:
   m_ObjectHideFlags: 0
@@ -1303,7 +1350,7 @@ MonoBehaviour:
   passengerStats: {fileID: 11400000, guid: ae2dd1d0045c66043ae62ba1cc209598, type: 2}
   rb: {fileID: 184826066}
   m_CharacterSpriteRenderer: {fileID: 60636552}
-  taskIconManager: {fileID: 0}
+  taskIconManager: {fileID: 184826067}
   MyHappiness: 1
 --- !u!70 &184826065
 CapsuleCollider2D:
@@ -1367,6 +1414,51 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &184826067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184826061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d53437f870c495a92cbadcfcec5191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TaskAlert: {fileID: 996497177}
+  m_ExclamationTaskSprite: {fileID: 21300000, guid: 67791f54cff3745c89fdb15d60a2f5d9, type: 3}
+  TaskIconSize: 0.5
+  TaskGradient:
+    serializedVersion: 2
+    key0: {r: 0, g: 1, b: 0, a: 1}
+    key1: {r: 1, g: 1, b: 0, a: 1}
+    key2: {r: 1, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 10794
+    ctime1: 32768
+    ctime2: 52043
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
 --- !u!1 &189065907
 GameObject:
   m_ObjectHideFlags: 0
@@ -1948,13 +2040,14 @@ GameObject:
   - component: {fileID: 273034819}
   - component: {fileID: 273034822}
   - component: {fileID: 273034821}
+  - component: {fileID: 273034823}
   m_Layer: 3
   m_Name: Passenger - F Blonde Blue
   m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &273034818
 Transform:
   m_ObjectHideFlags: 0
@@ -2001,7 +2094,7 @@ MonoBehaviour:
   passengerStats: {fileID: 11400000, guid: ae148a59bb40ad541af230e278afc739, type: 2}
   rb: {fileID: 273034822}
   m_CharacterSpriteRenderer: {fileID: 2052935043}
-  taskIconManager: {fileID: 0}
+  taskIconManager: {fileID: 273034823}
   MyHappiness: 1
 --- !u!70 &273034821
 CapsuleCollider2D:
@@ -2065,6 +2158,51 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &273034823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273034817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d53437f870c495a92cbadcfcec5191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TaskAlert: {fileID: 1804689933}
+  m_ExclamationTaskSprite: {fileID: 21300000, guid: 67791f54cff3745c89fdb15d60a2f5d9, type: 3}
+  TaskIconSize: 0.5
+  TaskGradient:
+    serializedVersion: 2
+    key0: {r: 0, g: 1, b: 0, a: 1}
+    key1: {r: 1, g: 1, b: 0, a: 1}
+    key2: {r: 1, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 10794
+    ctime1: 32768
+    ctime2: 52043
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
 --- !u!1 &274058595
 GameObject:
   m_ObjectHideFlags: 0
@@ -6933,13 +7071,14 @@ GameObject:
   - component: {fileID: 1248750911}
   - component: {fileID: 1248750914}
   - component: {fileID: 1248750913}
+  - component: {fileID: 1248750915}
   m_Layer: 3
   m_Name: Passenger - F Black Emo
   m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1248750910
 Transform:
   m_ObjectHideFlags: 0
@@ -6986,7 +7125,7 @@ MonoBehaviour:
   passengerStats: {fileID: 11400000, guid: 1c160982ce36ed14fa25e25f4447606c, type: 2}
   rb: {fileID: 1248750914}
   m_CharacterSpriteRenderer: {fileID: 1515127474}
-  taskIconManager: {fileID: 0}
+  taskIconManager: {fileID: 1248750915}
   MyHappiness: 1
 --- !u!70 &1248750913
 CapsuleCollider2D:
@@ -7050,6 +7189,51 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &1248750915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248750909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d53437f870c495a92cbadcfcec5191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TaskAlert: {fileID: 984526550}
+  m_ExclamationTaskSprite: {fileID: 21300000, guid: 67791f54cff3745c89fdb15d60a2f5d9, type: 3}
+  TaskIconSize: 0.5
+  TaskGradient:
+    serializedVersion: 2
+    key0: {r: 0, g: 1, b: 0, a: 1}
+    key1: {r: 1, g: 1, b: 0, a: 1}
+    key2: {r: 1, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 10794
+    ctime1: 32768
+    ctime2: 52043
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
 --- !u!1 &1294286348
 GameObject:
   m_ObjectHideFlags: 0
@@ -10508,13 +10692,14 @@ GameObject:
   - component: {fileID: 1795255946}
   - component: {fileID: 1795255949}
   - component: {fileID: 1795255948}
+  - component: {fileID: 1795255950}
   m_Layer: 3
-  m_Name: Passenger - F Elegant Lady
+  m_Name: Passenger - F Stupidass Bitch
   m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1795255945
 Transform:
   m_ObjectHideFlags: 0
@@ -10561,7 +10746,7 @@ MonoBehaviour:
   passengerStats: {fileID: 11400000, guid: 6b872c52dbc7d054183703f2cd8f7be5, type: 2}
   rb: {fileID: 1795255949}
   m_CharacterSpriteRenderer: {fileID: 254862398}
-  taskIconManager: {fileID: 0}
+  taskIconManager: {fileID: 1795255950}
   MyHappiness: 1
 --- !u!70 &1795255948
 CapsuleCollider2D:
@@ -10625,6 +10810,51 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &1795255950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795255944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d53437f870c495a92cbadcfcec5191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TaskAlert: {fileID: 1294904786}
+  m_ExclamationTaskSprite: {fileID: 21300000, guid: 67791f54cff3745c89fdb15d60a2f5d9, type: 3}
+  TaskIconSize: 0.5
+  TaskGradient:
+    serializedVersion: 2
+    key0: {r: 0, g: 1, b: 0, a: 1}
+    key1: {r: 1, g: 1, b: 0, a: 1}
+    key2: {r: 1, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 10794
+    ctime1: 32768
+    ctime2: 52043
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
 --- !u!1 &1804682855
 GameObject:
   m_ObjectHideFlags: 0
@@ -11276,13 +11506,14 @@ GameObject:
   - component: {fileID: 1878517873}
   - component: {fileID: 1878517876}
   - component: {fileID: 1878517875}
+  - component: {fileID: 1878517877}
   m_Layer: 3
   m_Name: Passenger - M Travis
   m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1878517872
 Transform:
   m_ObjectHideFlags: 0
@@ -11329,7 +11560,7 @@ MonoBehaviour:
   passengerStats: {fileID: 11400000, guid: b1f8767a07b5fe34ea2d1755c6206c5d, type: 2}
   rb: {fileID: 1878517876}
   m_CharacterSpriteRenderer: {fileID: 1294286350}
-  taskIconManager: {fileID: 0}
+  taskIconManager: {fileID: 1878517877}
   MyHappiness: 1
 --- !u!70 &1878517875
 CapsuleCollider2D:
@@ -11393,6 +11624,51 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &1878517877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878517871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d53437f870c495a92cbadcfcec5191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TaskAlert: {fileID: 402302151}
+  m_ExclamationTaskSprite: {fileID: 21300000, guid: 67791f54cff3745c89fdb15d60a2f5d9, type: 3}
+  TaskIconSize: 0.5
+  TaskGradient:
+    serializedVersion: 2
+    key0: {r: 0, g: 1, b: 0, a: 1}
+    key1: {r: 1, g: 1, b: 0, a: 1}
+    key2: {r: 1, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 10794
+    ctime1: 32768
+    ctime2: 52043
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
 --- !u!1 &1878747949
 GameObject:
   m_ObjectHideFlags: 0
@@ -12894,13 +13170,14 @@ GameObject:
   - component: {fileID: 2103217632}
   - component: {fileID: 2103217635}
   - component: {fileID: 2103217634}
+  - component: {fileID: 2103217637}
   m_Layer: 3
   m_Name: Passenger - M Brunette White
   m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2103217632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12929,7 +13206,7 @@ MonoBehaviour:
   passengerStats: {fileID: 11400000, guid: 1ab9e20fb8ae12c4890829a603d5df79, type: 2}
   rb: {fileID: 2103217635}
   m_CharacterSpriteRenderer: {fileID: 1623997406}
-  taskIconManager: {fileID: 0}
+  taskIconManager: {fileID: 2103217637}
   MyHappiness: 1
 --- !u!70 &2103217634
 CapsuleCollider2D:
@@ -13011,6 +13288,51 @@ Transform:
   - {fileID: 1878747951}
   m_Father: {fileID: 660644723}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2103217637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103217631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d53437f870c495a92cbadcfcec5191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TaskAlert: {fileID: 1878747950}
+  m_ExclamationTaskSprite: {fileID: 21300000, guid: 67791f54cff3745c89fdb15d60a2f5d9, type: 3}
+  TaskIconSize: 0.5
+  TaskGradient:
+    serializedVersion: 2
+    key0: {r: 0, g: 1, b: 0, a: 1}
+    key1: {r: 1, g: 1, b: 0, a: 1}
+    key2: {r: 1, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 10794
+    ctime1: 32768
+    ctime2: 52043
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
