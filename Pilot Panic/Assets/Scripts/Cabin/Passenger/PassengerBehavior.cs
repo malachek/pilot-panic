@@ -19,23 +19,19 @@ public class PassengerBehavior : InteractableBehavior
 
     [SerializeField] Rigidbody2D rb;
     [SerializeField] SpriteRenderer m_CharacterSpriteRenderer;
-    
+
+    [SerializeField] TaskIcon taskIconManager;
+    public Task MyTask { get; private set; }
+
+
     int m_SpriteIndex;
 
     public float MyHappiness = 1f;
-    
-
-
-    [Header("Tasks")]
-    [SerializeField] SpriteRenderer m_TaskAlert;
-    [SerializeField] Sprite m_ExclamationTaskSprite;
-    [SerializeField] float TaskIconSize;
-    public Task MyTask { get; private set; }
-    float m_TaskPatienceTimer;
 
     public bool IsBumped { get; private set; }
     public bool IsAssignedTask { get; private set; }
     public bool IsAcceptedTask { get; private set; }
+
 
 
     private void Awake()
@@ -43,7 +39,6 @@ public class PassengerBehavior : InteractableBehavior
         m_CharacterSprites = passengerStats.Sprites;
         m_SpriteIndex = 0;
         m_CharacterSpriteRenderer.sprite = m_CharacterSprites[m_SpriteIndex];
-        m_TaskAlert.gameObject.SetActive(false);
     }
 
     private void Start()
@@ -55,22 +50,19 @@ public class PassengerBehavior : InteractableBehavior
         m_HappinessGainMultipler = passengerStats.HappinessGainMultiplier;
         m_HappinessLossMultiplier = passengerStats.HappinessLossMultiplier;
         m_PatienceAtZero = passengerStats.PatienceAtZero;
-
-        if (TaskIconSize <= .01f) { TaskIconSize = .5f; }
-        m_TaskAlert.transform.localScale = new Vector3(TaskIconSize, TaskIconSize, 1);
     }
 
     public override PickupableBehavior GetInteract()
     {
-        if (IsAssignedTask) { AcceptTask(); }
+        if (IsAssignedTask) AcceptTask();
         return null;
     }
 
     //KEEP
     public float Weight()
     {
-        if(MyHappiness <= .01f) { return 0; }//////////////////////////////////////////////
-        return (4 / (3 * MyHappiness) + 1);
+        //if(MyHappiness <= .01f) { return 0; }//////////////////////////////////////////////
+        return (4 / (3 * MyHappiness + 1));
     }
 
 
@@ -87,7 +79,7 @@ public class PassengerBehavior : InteractableBehavior
             ChangeHappiness(-MyTask.happinessLoss * m_HappinessLossMultiplier);
         }
 
-        m_TaskAlert.gameObject.SetActive(false);
+        taskIconManager.CompletedTask();
 
         GameObject.FindObjectOfType<TaskManager>().CompletedTask(MyTask, this, success);
         MyTask = null;
@@ -105,7 +97,8 @@ public class PassengerBehavior : InteractableBehavior
     }
 
     private void CheckSprites(float NewHappiness)
-    {for (int i = 2; i >= 0; i--)
+    {
+        for (int i = 2; i >= 0; i--)
         {
             if (NewHappiness < m_MoodMilestones[i])
             {
@@ -123,24 +116,24 @@ public class PassengerBehavior : InteractableBehavior
         MyTask = task;
         IsAssignedTask = true;
         Debug.Log($"{gameObject.name} assigned task: {MyTask.name} - {MyTask.description}");
-        m_TaskAlert.sprite = m_ExclamationTaskSprite;
-        m_TaskAlert.gameObject.SetActive(true);
-          FMODUnity.RuntimeManager.PlayOneShot("event:/Male Task", GetComponent<Transform>().position);
-         if (IsInRange) InRange(true);
+
+        //taskIconManager.AssignedTask(task, m_TaskPatienceTimer);
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Male Task", GetComponent<Transform>().position);
+
+        if (IsInRange) InRange(true);
        
     }
-   
- 
-       
    
 
     private void AcceptTask()
     {
         IsAcceptedTask = true;
-        m_TaskAlert.sprite = MyTask.sprite;
+
         Debug.Log($"{gameObject.name} accepted task: {MyTask.name} - {MyTask.description}");
-        m_TaskAlert.gameObject.SetActive(true);
-        m_TaskPatienceTimer = Random.Range(MyTask.minWaitTime, MyTask.maxWaitTime) * CalculatePatience();
+
+        //taskIconManager.AcceptedTask(m_TaskPatienceTimer);
+
         if (IsInRange) InRange(true);
     }
 

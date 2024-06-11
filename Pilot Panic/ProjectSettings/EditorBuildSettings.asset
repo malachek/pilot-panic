@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SadLose.unity
     guid: 1709177c0ed73564689b385fca370910
+  - enabled: 1
+    path: Assets/Scenes/FallLose.unity
+    guid: f8a5a2ecded7f4a8cb08493758807622
   m_configObjects: {}

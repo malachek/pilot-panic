@@ -239,8 +239,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 16170690}
-  - component: {fileID: 16170689}
   - component: {fileID: 16170688}
+  - component: {fileID: 16170689}
   m_Layer: 0
   m_Name: AllignmentInteract
   m_TagString: Untagged
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_KeyText: {fileID: 357475373}
   MaxAllignment: 100
-  DecayRate: 5
+  DecayRate: 2
   AllignmentText: {fileID: 558579606}
 --- !u!61 &16170689
 BoxCollider2D:
@@ -517,17 +517,17 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 102002974}
-  - component: {fileID: 102002978}
-  - component: {fileID: 102002977}
   - component: {fileID: 102002976}
   - component: {fileID: 102002975}
+  - component: {fileID: 102002978}
+  - component: {fileID: 102002977}
   m_Layer: 3
   m_Name: Passenger - M Drake
   m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &102002974
 Transform:
   m_ObjectHideFlags: 0
@@ -574,10 +574,8 @@ MonoBehaviour:
   passengerStats: {fileID: 11400000, guid: 370b3fa3ab5fa3546a5af59c7a590486, type: 2}
   rb: {fileID: 102002978}
   m_CharacterSpriteRenderer: {fileID: 619494836}
+  taskIconManager: {fileID: 0}
   MyHappiness: 1
-  m_TaskAlert: {fileID: 1811637785}
-  m_ExclamationTaskSprite: {fileID: 21300000, guid: d4544d690ce6df6469df6ddfd0fae870, type: 3}
-  TaskIconSize: 0.5
 --- !u!70 &102002977
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1239,7 +1237,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.95, y: 0}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &184826061
@@ -1251,17 +1249,17 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 184826062}
-  - component: {fileID: 184826066}
-  - component: {fileID: 184826065}
   - component: {fileID: 184826064}
   - component: {fileID: 184826063}
+  - component: {fileID: 184826066}
+  - component: {fileID: 184826065}
   m_Layer: 3
   m_Name: Passenger - M Black White
   m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &184826062
 Transform:
   m_ObjectHideFlags: 0
@@ -1308,10 +1306,8 @@ MonoBehaviour:
   passengerStats: {fileID: 11400000, guid: ae2dd1d0045c66043ae62ba1cc209598, type: 2}
   rb: {fileID: 184826066}
   m_CharacterSpriteRenderer: {fileID: 60636552}
+  taskIconManager: {fileID: 0}
   MyHappiness: 1
-  m_TaskAlert: {fileID: 996497177}
-  m_ExclamationTaskSprite: {fileID: 21300000, guid: d4544d690ce6df6469df6ddfd0fae870, type: 3}
-  TaskIconSize: 0.5
 --- !u!70 &184826065
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1384,6 +1380,7 @@ GameObject:
   m_Component:
   - component: {fileID: 189065909}
   - component: {fileID: 189065908}
+  - component: {fileID: 189065910}
   m_Layer: 0
   m_Name: Emergency Door
   m_TagString: Untagged
@@ -1404,7 +1401,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_KeyText: {fileID: 181244503}
-  EDoorPrefab: {fileID: 189065907}
 --- !u!4 &189065909
 Transform:
   m_ObjectHideFlags: 0
@@ -1414,13 +1410,58 @@ Transform:
   m_GameObject: {fileID: 189065907}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.96, y: 4.2, z: -0.22000003}
+  m_LocalPosition: {x: 7.66, y: 4.2, z: -0.22000003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 181244505}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &189065910
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189065907}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &197659125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1906,17 +1947,17 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 273034818}
-  - component: {fileID: 273034822}
-  - component: {fileID: 273034821}
   - component: {fileID: 273034820}
   - component: {fileID: 273034819}
+  - component: {fileID: 273034822}
+  - component: {fileID: 273034821}
   m_Layer: 3
   m_Name: Passenger - F Blonde Blue
   m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &273034818
 Transform:
   m_ObjectHideFlags: 0
@@ -1963,10 +2004,8 @@ MonoBehaviour:
   passengerStats: {fileID: 11400000, guid: ae148a59bb40ad541af230e278afc739, type: 2}
   rb: {fileID: 273034822}
   m_CharacterSpriteRenderer: {fileID: 2052935043}
+  taskIconManager: {fileID: 0}
   MyHappiness: 1
-  m_TaskAlert: {fileID: 1804689933}
-  m_ExclamationTaskSprite: {fileID: 21300000, guid: d4544d690ce6df6469df6ddfd0fae870, type: 3}
-  TaskIconSize: 0.5
 --- !u!70 &273034821
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -4390,10 +4429,8 @@ MonoBehaviour:
   passengerStats: {fileID: 11400000, guid: 00b620c7323b01248bd33fa9add231e3, type: 2}
   rb: {fileID: 604468988}
   m_CharacterSpriteRenderer: {fileID: 1344758220}
+  taskIconManager: {fileID: 0}
   MyHappiness: 1
-  m_TaskAlert: {fileID: 1970423612}
-  m_ExclamationTaskSprite: {fileID: 21300000, guid: d4544d690ce6df6469df6ddfd0fae870, type: 3}
-  TaskIconSize: 0.5
 --- !u!70 &604468987
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -6365,10 +6402,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1134406898}
-  - component: {fileID: 1134406897}
-  - component: {fileID: 1134406896}
   - component: {fileID: 1134406895}
   - component: {fileID: 1134406894}
+  - component: {fileID: 1134406897}
+  - component: {fileID: 1134406896}
+  - component: {fileID: 1134406899}
   m_Layer: 3
   m_Name: Passenger - F Red Dress
   m_TagString: Passenger
@@ -6404,10 +6442,8 @@ MonoBehaviour:
   passengerStats: {fileID: 11400000, guid: 00b620c7323b01248bd33fa9add231e3, type: 2}
   rb: {fileID: 1134406897}
   m_CharacterSpriteRenderer: {fileID: 298718375}
+  taskIconManager: {fileID: 1134406899}
   MyHappiness: 1
-  m_TaskAlert: {fileID: 1920328870}
-  m_ExclamationTaskSprite: {fileID: 21300000, guid: d4544d690ce6df6469df6ddfd0fae870, type: 3}
-  TaskIconSize: 0.5
 --- !u!70 &1134406896
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -6488,6 +6524,21 @@ Transform:
   - {fileID: 1920328871}
   m_Father: {fileID: 660644723}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1134406899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134406893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d53437f870c495a92cbadcfcec5191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TaskAlert: {fileID: 1920328870}
+  m_ExclamationTaskSprite: {fileID: 21300000, guid: 67791f54cff3745c89fdb15d60a2f5d9, type: 3}
+  TaskIconSize: 0.5
 --- !u!1 &1166530805
 GameObject:
   m_ObjectHideFlags: 0
@@ -6851,17 +6902,17 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1248750910}
-  - component: {fileID: 1248750914}
-  - component: {fileID: 1248750913}
   - component: {fileID: 1248750912}
   - component: {fileID: 1248750911}
+  - component: {fileID: 1248750914}
+  - component: {fileID: 1248750913}
   m_Layer: 3
   m_Name: Passenger - F Black Emo
   m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1248750910
 Transform:
   m_ObjectHideFlags: 0
@@ -6908,10 +6959,8 @@ MonoBehaviour:
   passengerStats: {fileID: 11400000, guid: 1c160982ce36ed14fa25e25f4447606c, type: 2}
   rb: {fileID: 1248750914}
   m_CharacterSpriteRenderer: {fileID: 1515127474}
+  taskIconManager: {fileID: 0}
   MyHappiness: 1
-  m_TaskAlert: {fileID: 984526550}
-  m_ExclamationTaskSprite: {fileID: 21300000, guid: d4544d690ce6df6469df6ddfd0fae870, type: 3}
-  TaskIconSize: 0.5
 --- !u!70 &1248750913
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -7607,7 +7656,7 @@ Transform:
   m_GameObject: {fileID: 1348877755}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.788046, y: 0.109948635, z: -100.09338}
+  m_LocalPosition: {x: 17.788048, y: 0.109948635, z: -100.09338}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10431,17 +10480,17 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1795255945}
-  - component: {fileID: 1795255949}
-  - component: {fileID: 1795255948}
   - component: {fileID: 1795255947}
   - component: {fileID: 1795255946}
+  - component: {fileID: 1795255949}
+  - component: {fileID: 1795255948}
   m_Layer: 3
   m_Name: Passenger - F Elegant Lady
   m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1795255945
 Transform:
   m_ObjectHideFlags: 0
@@ -10488,10 +10537,8 @@ MonoBehaviour:
   passengerStats: {fileID: 11400000, guid: 6b872c52dbc7d054183703f2cd8f7be5, type: 2}
   rb: {fileID: 1795255949}
   m_CharacterSpriteRenderer: {fileID: 254862398}
+  taskIconManager: {fileID: 0}
   MyHappiness: 1
-  m_TaskAlert: {fileID: 1294904786}
-  m_ExclamationTaskSprite: {fileID: 21300000, guid: d4544d690ce6df6469df6ddfd0fae870, type: 3}
-  TaskIconSize: 0.5
 --- !u!70 &1795255948
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -11201,17 +11248,17 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1878517872}
-  - component: {fileID: 1878517876}
-  - component: {fileID: 1878517875}
   - component: {fileID: 1878517874}
   - component: {fileID: 1878517873}
+  - component: {fileID: 1878517876}
+  - component: {fileID: 1878517875}
   m_Layer: 3
   m_Name: Passenger - M Travis
   m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1878517872
 Transform:
   m_ObjectHideFlags: 0
@@ -11258,10 +11305,8 @@ MonoBehaviour:
   passengerStats: {fileID: 11400000, guid: b1f8767a07b5fe34ea2d1755c6206c5d, type: 2}
   rb: {fileID: 1878517876}
   m_CharacterSpriteRenderer: {fileID: 1294286350}
+  taskIconManager: {fileID: 0}
   MyHappiness: 1
-  m_TaskAlert: {fileID: 402302151}
-  m_ExclamationTaskSprite: {fileID: 21300000, guid: d4544d690ce6df6469df6ddfd0fae870, type: 3}
-  TaskIconSize: 0.5
 --- !u!70 &1878517875
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -12821,17 +12866,17 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2103217636}
-  - component: {fileID: 2103217635}
-  - component: {fileID: 2103217634}
   - component: {fileID: 2103217633}
   - component: {fileID: 2103217632}
+  - component: {fileID: 2103217635}
+  - component: {fileID: 2103217634}
   m_Layer: 3
   m_Name: Passenger - M Brunette White
   m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2103217632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12860,10 +12905,8 @@ MonoBehaviour:
   passengerStats: {fileID: 11400000, guid: 1ab9e20fb8ae12c4890829a603d5df79, type: 2}
   rb: {fileID: 2103217635}
   m_CharacterSpriteRenderer: {fileID: 1623997406}
+  taskIconManager: {fileID: 0}
   MyHappiness: 1
-  m_TaskAlert: {fileID: 1878747950}
-  m_ExclamationTaskSprite: {fileID: 21300000, guid: d4544d690ce6df6469df6ddfd0fae870, type: 3}
-  TaskIconSize: 0.5
 --- !u!70 &2103217634
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

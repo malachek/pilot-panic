@@ -95,6 +95,7 @@ public class Ask : PassengerState
 
     public override void Enter()
     {
+        behavior.GetComponent<TaskIcon>()?.AssignedTask(AssignedTask, TaskPatienceTimer);
         base.Enter();
     }
 
@@ -137,6 +138,7 @@ public class Wait : PassengerState
 
     public override void Enter()
     {
+        behavior.GetComponent<TaskIcon>()?.AcceptedTask(TaskPatienceTimer);
         base.Enter();
     }
 
