@@ -48,17 +48,17 @@ public class PlaneHandle : InteractableBehavior
 
             case <= 10f:
                 AllignmentText.text = Allignment.ToString($"AUTOPILOT: [OFF] T-{Allignment:0}");
-                CinemachineShake.Instance.ShakeCamera(.5f, .1f);
+                CinemachineShake.Instance.ShakeCamera(.5f);
                 break;
 
             case <= 15f:
                 AllignmentText.text = Allignment.ToString($"AUTOPILOT: [OFF] T-{Allignment:0}");
-                CinemachineShake.Instance.ShakeCamera(.2f, .1f);
+                CinemachineShake.Instance.ShakeCamera(.2f);
                 break;
 
             case <= 25f:
                 AllignmentText.text = Allignment.ToString("AUTOPILOT: [OFF]" /*+ " 0"*/);
-                CinemachineShake.Instance.ShakeCamera(.05f, .1f);
+                CinemachineShake.Instance.ShakeCamera(.05f);
                 break;
 
             default:
@@ -74,7 +74,7 @@ public class PlaneHandle : InteractableBehavior
         {
             Allignment = MaxAllignment;
             AllignmentText.text = Allignment.ToString("AUTOPILOT: [ON]" /*+ " 0"*/);
-            CinemachineShake.Instance.ShakeCamera(0f, .1f);
+            CinemachineShake.Instance.ShakeCamera(0f);
         }
         return null;
     }

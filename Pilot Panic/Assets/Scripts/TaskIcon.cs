@@ -9,8 +9,8 @@ public class TaskIcon : MonoBehaviour
     [SerializeField] Sprite m_ExclamationTaskSprite;
     [SerializeField] float TaskIconSize;
 
-    float m_MaxAskTime;
-    float m_TimerTime;
+    [SerializeField] Gradient TaskGradient;
+
     Sprite m_TaskSprite;
     
 
@@ -28,16 +28,93 @@ public class TaskIcon : MonoBehaviour
 
     public void AssignedTask(Task task, float askTime)
     {
+        SetActiveSprite(m_ExclamationTaskSprite);
+        //StopAllCoroutines();
+        //m_TaskAlert.color = Color.white;
+        //m_TaskAlert.transform.localScale = new Vector3(TaskIconSize, TaskIconSize, 1);
+        //m_TaskAlert.sprite = m_ExclamationTaskSprite;
+
+        //m_TaskSprite = task.sprite;
+
+        //m_TaskAlert.gameObject.SetActive(true);
         m_TaskSprite = task.sprite;
-        m_TaskAlert.sprite = m_ExclamationTaskSprite;
-        m_TaskAlert.gameObject.SetActive(true);
+        StartCoroutine(TimerGradient(askTime));
     }
 
     public void AcceptedTask(float waitTime)
     {
-        m_TaskAlert.sprite = m_TaskSprite;
+        SetActiveSprite(m_TaskSprite);
+        //StopAllCoroutines();
+        //m_TaskAlert.color = Color.white;
+        //m_TaskAlert.transform.localScale = new Vector3(TaskIconSize, TaskIconSize, 1);
+
+        //m_TaskAlert.sprite = m_TaskSprite;
+
+        //m_TaskAlert.gameObject.SetActive(true);
+
+        StartCoroutine(TimerBlink(waitTime));
+    }
+
+    private void SetActiveSprite(Sprite sprite)
+    {
+        StopAllCoroutines();
+        m_TaskAlert.color = Color.white;
+        m_TaskAlert.transform.localScale = new Vector3(TaskIconSize, TaskIconSize, 1);
+
+        m_TaskAlert.sprite = sprite;
+
         m_TaskAlert.gameObject.SetActive(true);
-        
+    }
+
+    
+    private IEnumerator TimerGradient(float maxTimerTime)
+    {
+        float timerTime = 0f;
+        while (timerTime < maxTimerTime)
+        {
+            timerTime += Time.deltaTime;
+            m_TaskAlert.color = TaskGradient.Evaluate(timerTime / maxTimerTime);
+            yield return new WaitForFixedUpdate();
+        }
+    }
+
+    private IEnumerator TimerBlink(float maxTimerTime)
+    {
+        float timerTime = 0f;
+        float blinkWaitTime = maxTimerTime * CalculateBlinkTime(0f);
+        float currentBlinkTimer = 0f;
+
+        while (timerTime < maxTimerTime)
+        {
+            timerTime += Time.deltaTime;
+            blinkWaitTime -= Time.deltaTime;
+
+            if (blinkWaitTime < 0f)
+            {
+                blinkWaitTime = maxTimerTime * CalculateBlinkTime(timerTime / maxTimerTime);
+                Debug.Log("Blink wait for " + blinkWaitTime);
+                currentBlinkTimer = .05f;
+            }
+            if (currentBlinkTimer > .01f)
+            {
+                m_TaskAlert.transform.localScale = new Vector3(TaskIconSize * 1.2f, TaskIconSize * 1.2f, 1f);
+                currentBlinkTimer -= Time.deltaTime;
+                if (currentBlinkTimer <= 0f)
+                {
+                    m_TaskAlert.transform.localScale = new Vector3(TaskIconSize, TaskIconSize, 1f);
+                }
+            }
+
+            yield return new WaitForFixedUpdate();
+        }
+    }
+
+    private float CalculateBlinkTime(float percent)
+    {
+        return (percent - 1) * (percent - 1) / 3f;
+        return (1 - percent) / 4f;
+        return 2 / (percent + 1) + 1;
+        return 1f - (percent * percent);
     }
 
     public void CompletedTask()
