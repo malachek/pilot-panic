@@ -62,10 +62,10 @@ MonoBehaviour:
   Path: ../../../FMOD Studio/Pilot Panic/Build/Desktop/Passengers.bank
   Name: Passengers
   StudioPath: bank:/Passengers
-  lastModified: 638534797795306637
+  lastModified: 638536397854628346
   FileSizes:
   - Name: Desktop
-    Value: 12640
+    Value: 45824
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -87,12 +87,13 @@ MonoBehaviour:
   EditorEvents:
   - {fileID: 2690569170056128967}
   - {fileID: -7914852534764874157}
+  - {fileID: 3462615473621053622}
   EditorParameters: []
   MasterBanks:
   - {fileID: 5345553922442646511}
   StringsBanks:
   - {fileID: 6194871671668382490}
-  cacheTime: 638534797796312978
+  cacheTime: 638536397854628346
   cacheVersion: 131618
 --- !u!114 &2690569170056128967
 MonoBehaviour:
@@ -121,6 +122,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &3462615473621053622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Male Task
+  m_EditorClassIdentifier: 
+  Path: event:/Male Task
+  Guid:
+    Data1: -607055667
+    Data2: 1117750271
+    Data3: -2138048362
+    Data4: -738142475
+  Banks:
+  - {fileID: -786991608123332980}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &5345553922442646511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +164,7 @@ MonoBehaviour:
   Path: ../../../FMOD Studio/Pilot Panic/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638534756733719554
+  lastModified: 638536397359673626
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -156,8 +184,8 @@ MonoBehaviour:
   Path: ../../../FMOD Studio/Pilot Panic/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638534756734506471
+  lastModified: 638536397359673626
   FileSizes:
   - Name: Desktop
-    Value: 910
+    Value: 950
   Exists: 1

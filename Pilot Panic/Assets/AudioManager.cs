@@ -11,6 +11,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField] GameObject Player;
     [SerializeField] PlayerMovement PlayerMovement;
 
+    // [SerializeField] EventReference MaleTaskEvent;
+    // [SerializeField] PassengerBehavior DrakeBehavior;
+
+   // private bool hasPlayedMaleSound = false;
     float time;
 
     public void PlayFootstep()
@@ -19,6 +23,11 @@ public class AudioManager : MonoBehaviour
 
     }
 
+    //  public void PlayMaleTask()
+    // {
+    //     RuntimeManager.PlayOneShotAttached(MaleTaskEvent, Player);
+
+    // }
 
     void Update()
     {
@@ -40,5 +49,14 @@ public class AudioManager : MonoBehaviour
         return;
 
        }
+
+        // if(DrakeBehavior.IsAssignedTask)
+        // {
+          
+        //         Debug.Log("Assign Task is RUNNING");
+        //         FMODUnity.RuntimeManager.PlayOneShot("event:/Male Task", GetComponent<Transform>().position);
+       
+        // }
+
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
+using FMODUnity;
 
 // using UnityEditor.VersionControl;
 using UnityEngine;
@@ -23,6 +24,8 @@ public class PassengerBehavior : InteractableBehavior
 
     public float MyHappiness = 1f;
     
+
+
     [Header("Tasks")]
     [SerializeField] SpriteRenderer m_TaskAlert;
     [SerializeField] Sprite m_ExclamationTaskSprite;
@@ -116,13 +119,20 @@ public class PassengerBehavior : InteractableBehavior
 
     public void AssignTask(Task task)
     {
+        
         MyTask = task;
         IsAssignedTask = true;
         Debug.Log($"{gameObject.name} assigned task: {MyTask.name} - {MyTask.description}");
         m_TaskAlert.sprite = m_ExclamationTaskSprite;
         m_TaskAlert.gameObject.SetActive(true);
-        if (IsInRange) InRange(true);
+          FMODUnity.RuntimeManager.PlayOneShot("event:/Male Task", GetComponent<Transform>().position);
+         if (IsInRange) InRange(true);
+       
     }
+   
+ 
+       
+   
 
     private void AcceptTask()
     {
