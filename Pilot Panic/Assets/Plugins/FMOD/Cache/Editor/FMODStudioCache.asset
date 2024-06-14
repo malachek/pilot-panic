@@ -1,60 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7914852534764874157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/footsteps
-  m_EditorClassIdentifier: 
-  Path: event:/footsteps
-  Guid:
-    Data1: 1341965579
-    Data2: 1228094475
-    Data3: 41957260
-    Data4: 1870413482
-  Banks:
-  - {fileID: -4300631720082979172}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &-7644756905267369874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/TaskComplete
-  m_EditorClassIdentifier: 
-  Path: event:/TaskComplete
-  Guid:
-    Data1: -1358808014
-    Data2: 1260163884
-    Data3: 81674915
-    Data4: 1594805947
-  Banks:
-  - {fileID: -4300631720082979172}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &-4300631720082979172
+--- !u!114 &-6852322401466837982
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,37 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Player.bank
+  m_Name: bank:/Master.bank
   m_EditorClassIdentifier: 
-  Path: ../../../FMOD Studio/Pilot Panic/Build/Desktop/Player.bank
-  Name: Player
-  StudioPath: bank:/Player
-  lastModified: 638536968481121375
+  Path: ../../../../Desktop/Project-Panic-Final/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638539194420679967
   FileSizes:
   - Name: Desktop
-    Value: 22944
+    Value: 27040
   Exists: 1
---- !u!114 &-1219685086937000065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Game Scenes.bank
-  m_EditorClassIdentifier: 
-  Path: ../../../FMOD Studio/Pilot Panic/Build/Desktop/Game Scenes.bank
-  Name: Game Scenes
-  StudioPath: bank:/Game Scenes
-  lastModified: 638536981252319227
-  FileSizes:
-  - Name: Desktop
-    Value: 17728
-  Exists: 1
---- !u!114 &-786991608123332980
+--- !u!114 &-2627677336110639592
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,13 +32,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/Passengers.bank
   m_EditorClassIdentifier: 
-  Path: ../../../FMOD Studio/Pilot Panic/Build/Desktop/Passengers.bank
+  Path: ../../../../Desktop/Project-Panic-Final/Build/Desktop/Passengers.bank
   Name: Passengers
   StudioPath: bank:/Passengers
-  lastModified: 638536397854628346
+  lastModified: 638539187287539427
   FileSizes:
   - Name: Desktop
-    Value: 45824
+    Value: 51968
+  Exists: 1
+--- !u!114 &-2357183824023045823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/Footsteps
+  Guid:
+    Data1: -110034149
+    Data2: 1131596659
+    Data3: -1030361193
+    Data4: -1361072663
+  Banks:
+  - {fileID: -724230815562649198}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-724230815562649198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Player.bank
+  m_EditorClassIdentifier: 
+  Path: ../../../../Desktop/Project-Panic-Final/Build/Desktop/Player.bank
+  Name: Player
+  StudioPath: bank:/Player
+  lastModified: 638539185475000758
+  FileSizes:
+  - Name: Desktop
+    Value: 18112
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -127,25 +100,23 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 6194871671668382490}
-  - {fileID: 5345553922442646511}
-  - {fileID: -786991608123332980}
-  - {fileID: -4300631720082979172}
-  - {fileID: -1219685086937000065}
+  - {fileID: 5317224571158594767}
+  - {fileID: -6852322401466837982}
+  - {fileID: -2627677336110639592}
+  - {fileID: -724230815562649198}
   EditorEvents:
-  - {fileID: 2690569170056128967}
-  - {fileID: -7914852534764874157}
-  - {fileID: 3462615473621053622}
-  - {fileID: -7644756905267369874}
-  - {fileID: 5916106987491100308}
+  - {fileID: -2357183824023045823}
+  - {fileID: 3706869565779208710}
+  - {fileID: 5092817864405375091}
+  - {fileID: 4981306685589559534}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 5345553922442646511}
+  - {fileID: -6852322401466837982}
   StringsBanks:
-  - {fileID: 6194871671668382490}
-  cacheTime: 638536981252319227
+  - {fileID: 5317224571158594767}
+  cacheTime: 638539194420807373
   cacheVersion: 131618
---- !u!114 &2690569170056128967
+--- !u!114 &3706869565779208710
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,43 +126,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Warning
+  m_Name: event:/TaskDONE
   m_EditorClassIdentifier: 
-  Path: event:/Warning
+  Path: event:/TaskDONE
   Guid:
-    Data1: 1233851609
-    Data2: 1093237524
-    Data3: -1723630659
-    Data4: 460566089
+    Data1: -764467424
+    Data2: 1341302930
+    Data3: 887223943
+    Data4: 929803754
   Banks:
-  - {fileID: -786991608123332980}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &3462615473621053622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Male Task
-  m_EditorClassIdentifier: 
-  Path: event:/Male Task
-  Guid:
-    Data1: -607055667
-    Data2: 1117750271
-    Data3: -2138048362
-    Data4: -738142475
-  Banks:
-  - {fileID: -786991608123332980}
+  - {fileID: -6852322401466837982}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -199,27 +143,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &5345553922442646511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: ../../../FMOD Studio/Pilot Panic/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638536981251414809
-  FileSizes:
-  - Name: Desktop
-    Value: 1036
-  Exists: 1
---- !u!114 &5916106987491100308
+--- !u!114 &4981306685589559534
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -229,16 +153,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/GameOver
+  m_Name: event:/Grunts
   m_EditorClassIdentifier: 
-  Path: event:/GameOver
+  Path: event:/Grunts
   Guid:
-    Data1: 149953427
-    Data2: 1085305864
-    Data3: -828397673
-    Data4: -1318232365
+    Data1: 328486487
+    Data2: 1273450637
+    Data3: -95608151
+    Data4: -432521458
   Banks:
-  - {fileID: -1219685086937000065}
+  - {fileID: -2627677336110639592}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -246,7 +170,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &6194871671668382490
+--- !u!114 &5092817864405375091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/GAMEOVER
+  m_EditorClassIdentifier: 
+  Path: event:/GAMEOVER
+  Guid:
+    Data1: -1388712896
+    Data2: 1172184241
+    Data3: -1730948216
+    Data4: 440098529
+  Banks:
+  - {fileID: -6852322401466837982}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &5317224571158594767
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -258,11 +209,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/Master.strings.bank
   m_EditorClassIdentifier: 
-  Path: ../../../FMOD Studio/Pilot Panic/Build/Desktop/Master.strings.bank
+  Path: ../../../../Desktop/Project-Panic-Final/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638536981251429835
+  lastModified: 638539194420807373
   FileSizes:
   - Name: Desktop
-    Value: 1074
+    Value: 998
   Exists: 1
