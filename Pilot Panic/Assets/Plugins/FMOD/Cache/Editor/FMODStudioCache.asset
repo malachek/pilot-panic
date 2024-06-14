@@ -15,11 +15,65 @@ MonoBehaviour:
   Path: ../../../../Desktop/Project-Panic-Final/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638539194420679967
+  lastModified: 638539645553162505
   FileSizes:
   - Name: Desktop
-    Value: 27040
+    Value: 30208
   Exists: 1
+--- !u!114 &-6247675276228708650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Alarm-Disconnect
+  m_EditorClassIdentifier: 
+  Path: event:/Alarm-Disconnect
+  Guid:
+    Data1: -1953043399
+    Data2: 1295386260
+    Data3: -2120000375
+    Data4: -1573031760
+  Banks:
+  - {fileID: -6852322401466837982}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-3608648939613437073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Chip Bag
+  m_EditorClassIdentifier: 
+  Path: event:/Chip Bag
+  Guid:
+    Data1: -1026780971
+    Data2: 1298690212
+    Data3: 1990566795
+    Data4: -83841689
+  Banks:
+  - {fileID: -724230815562649198}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-2627677336110639592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,10 +136,10 @@ MonoBehaviour:
   Path: ../../../../Desktop/Project-Panic-Final/Build/Desktop/Player.bank
   Name: Player
   StudioPath: bank:/Player
-  lastModified: 638539185475000758
+  lastModified: 638539632274498606
   FileSizes:
   - Name: Desktop
-    Value: 18112
+    Value: 22816
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -109,12 +163,14 @@ MonoBehaviour:
   - {fileID: 3706869565779208710}
   - {fileID: 5092817864405375091}
   - {fileID: 4981306685589559534}
+  - {fileID: -3608648939613437073}
+  - {fileID: -6247675276228708650}
   EditorParameters: []
   MasterBanks:
   - {fileID: -6852322401466837982}
   StringsBanks:
   - {fileID: 5317224571158594767}
-  cacheTime: 638539194420807373
+  cacheTime: 638539645553194008
   cacheVersion: 131618
 --- !u!114 &3706869565779208710
 MonoBehaviour:
@@ -212,8 +268,8 @@ MonoBehaviour:
   Path: ../../../../Desktop/Project-Panic-Final/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638539194420807373
+  lastModified: 638539645553194008
   FileSizes:
   - Name: Desktop
-    Value: 998
+    Value: 1084
   Exists: 1
