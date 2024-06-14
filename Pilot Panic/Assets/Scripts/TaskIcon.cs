@@ -97,6 +97,7 @@ public class TaskIcon : MonoBehaviour
 
     private float CalculateBlinkTime(float percent)
     {
+        return (1 - percent) * 1 / 3;
         return (percent - 1) * (percent - 1) / 3f;
         return (1 - percent) / 4f;
         return 2 / (percent + 1) + 1;

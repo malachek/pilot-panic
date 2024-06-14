@@ -8,6 +8,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float m_MaxSpeed;
     [SerializeField] float m_Acceleration;
     [SerializeField] float m_Decelleration;
+
+    [SerializeField] float minY;
+    [SerializeField] float maxY;
+    [SerializeField] float minZ;
+    [SerializeField] float maxZ;
     
     public Vector2 m_InputVector;
     public Vector2 m_VelocityVector;
@@ -46,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
         if(m_InputVector.x !=0|| m_InputVector.y !=0)
         {
             isWalking = true;
+            HandleOverlap();
         }
         else
         {
@@ -54,6 +60,15 @@ public class PlayerMovement : MonoBehaviour
 
         //DetermineKeyHeld();
         AnyKeyDown(Keys);
+    }
+
+    private void HandleOverlap()
+    {
+        float percentY = (gameObject.transform.position.y - minY) / (maxY - minY);
+        float newZ = percentY * (maxZ - minZ) + minZ;
+        //Debug.Log($"PercentY: {percentY} = {transform.position.y} / {maxY-minY}");
+        //Debug.Log($"{newZ} = {percentY} * {maxZ-minZ}");
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, newZ);
     }
 
     private bool AnyKeyDown(IEnumerable<string> keys)

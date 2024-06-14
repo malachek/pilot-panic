@@ -18,6 +18,7 @@ public class PassengerBehavior : InteractableBehavior
     float m_PatienceAtZero;
 
     [SerializeField] Rigidbody2D rb;
+    [SerializeField] CapsuleCollider2D col;
     [SerializeField] SpriteRenderer m_CharacterSpriteRenderer;
 
     [SerializeField] TaskIcon taskIconManager;
@@ -55,7 +56,15 @@ public class PassengerBehavior : InteractableBehavior
     public override PickupableBehavior GetInteract()
     {
         if (IsAssignedTask) AcceptTask();
+        StartCoroutine(ResetTrigger());
         return null;
+    }
+
+    private IEnumerator ResetTrigger()
+    {
+        col.enabled = false;
+        yield return new WaitForFixedUpdate();
+        col.enabled = true;
     }
 
     //KEEP
