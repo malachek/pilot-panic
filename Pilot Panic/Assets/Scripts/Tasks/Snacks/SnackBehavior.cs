@@ -31,7 +31,6 @@ public class SnackBehavior : PickupableBehavior
             if (passenger.MyTask.name == "Chips" && passenger.IsAcceptedTask)
             {
                 passenger.CompleteTask(true);
-                
                 DestroyMe();
             }
         }

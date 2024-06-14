@@ -24,7 +24,6 @@ public class InteractDetector : MonoBehaviour
         {
             NearbyInteractables.Add(interactable.Key, interactable);
             interactable.InRange(true);
-            
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
