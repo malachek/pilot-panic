@@ -88,7 +88,7 @@ public class HappinessManager : MonoBehaviour
     public static void GameOver()
     {
         SceneManager.LoadScene("SadLose");
-        FMODUnity.RuntimeManager.PlayOneShot("event:/GameOver");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/GAMEOVER");
         _instance.Awake();
     }
     

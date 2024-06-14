@@ -11164,12 +11164,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FootstepEvent:
     Guid:
-      Data1: 1341965579
-      Data2: 1228094475
-      Data3: 41957260
-      Data4: 1870413482
-    Path: event:/footsteps
-  rate: 0.18
+      Data1: -110034149
+      Data2: 1131596659
+      Data3: -1030361193
+      Data4: -1361072663
+    Path: event:/Footsteps
+  rate: 0.15
   Player: {fileID: 369541487}
   PlayerMovement: {fileID: 369541488}
 --- !u!1 &1864607182
@@ -12830,8 +12830,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -62.79, y: 80.403015}
-  m_SizeDelta: {x: 106.26, y: 103.55}
+  m_AnchoredPosition: {x: -51.688, y: 80.403015}
+  m_SizeDelta: {x: 105.05, y: 103.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2046729310
 MonoBehaviour:
