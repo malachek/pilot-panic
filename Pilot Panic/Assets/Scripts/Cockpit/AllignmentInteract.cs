@@ -51,6 +51,7 @@ public class PlaneHandle : InteractableBehavior
             case <= 10f:
                 AllignmentText.text = Allignment.ToString($"AUTOPILOT: [OFF] T-{Allignment:0}");
                 CinemachineShake.Instance.ShakeCamera(.5f);
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Alarm-Disconnect");
                 break;
 
             case <= 15f:

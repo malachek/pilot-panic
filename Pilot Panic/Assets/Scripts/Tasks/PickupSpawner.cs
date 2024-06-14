@@ -16,6 +16,7 @@ public class PickupSpawner : InteractableBehavior
     {
         var spawned = Instantiate(SpawnablePrefab, player.transform);
         spawned.transform.SetParent(player.transform);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Chip Bag");
         return spawned.GetComponentInChildren<PickupableBehavior>();
     }
 }
