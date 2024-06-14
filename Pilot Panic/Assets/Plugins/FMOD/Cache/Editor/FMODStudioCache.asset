@@ -42,10 +42,10 @@ MonoBehaviour:
   Path: ../../../../Desktop/Project-Panic-Final/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638539645553162505
+  lastModified: 638539658040149879
   FileSizes:
   - Name: Desktop
-    Value: 30208
+    Value: 54592
   Exists: 1
 --- !u!114 &-2627677336110639592
 MonoBehaviour:
@@ -138,12 +138,13 @@ MonoBehaviour:
   - {fileID: 4981306685589559534}
   - {fileID: -7937555996383496140}
   - {fileID: 3770923031238948993}
+  - {fileID: 8767980665567218696}
   EditorParameters: []
   MasterBanks:
   - {fileID: -6852322401466837982}
   StringsBanks:
   - {fileID: 5317224571158594767}
-  cacheTime: 638539645553194008
+  cacheTime: 638539658040185006
   cacheVersion: 131618
 --- !u!114 &3706869565779208710
 MonoBehaviour:
@@ -268,8 +269,35 @@ MonoBehaviour:
   Path: ../../../../Desktop/Project-Panic-Final/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638539645553194008
+  lastModified: 638539658040185006
   FileSizes:
   - Name: Desktop
-    Value: 1084
+    Value: 1130
   Exists: 1
+--- !u!114 &8767980665567218696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/GAME Win
+  m_EditorClassIdentifier: 
+  Path: event:/GAME Win
+  Guid:
+    Data1: 2120095969
+    Data2: 1261891223
+    Data3: 277153441
+    Data4: -1299830469
+  Banks:
+  - {fileID: -6852322401466837982}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0

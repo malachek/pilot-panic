@@ -34,7 +34,8 @@ public class DestinationFlight : MonoBehaviour
         if (FlightLength >= 99.91f)
         {
             SceneManager.LoadScene("Win");
-           // HappinessManager.OnGameWin();
+            FMODUnity.RuntimeManager.PlayOneShot("event:/GAME Win");
+            // HappinessManager.OnGameWin();
             return;
         }
 

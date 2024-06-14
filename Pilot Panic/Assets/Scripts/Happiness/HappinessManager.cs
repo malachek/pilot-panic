@@ -93,7 +93,7 @@ public class HappinessManager : MonoBehaviour
     }
     
     public static void GameWin()
-    {
+    {  
         SceneManager.LoadScene("Win");
         _instance.Awake();
     }
